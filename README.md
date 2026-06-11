@@ -4,11 +4,7 @@ title: "JavaScript Master Interview Manual"
 permalink: /
 ---
 
-<style>
-  #main-header {
-    display: none !important;
-  }
-</style>
+<style>#main-header{display:none !important;}</style>
 
 ![JavaScript Master Interview Manual Banner](assets/banner.png)
 
