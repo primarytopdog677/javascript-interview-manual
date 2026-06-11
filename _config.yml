@@ -1,12 +1,10 @@
-title: ""
+title: "📚 JavaScript Master Interview Manual"
 description: "The ultimate production-grade crunch-time revision framework engineered for Senior SDE loops."
 show_downloads: false
 
-# 🎨 Premium Remote Layout: inelaah/rain
-remote_theme: inelaah/rain
-incremental: true          
-sass:
-  style: :compressed       
+# 🎨 Premium Remote Layout: yous/whiteglass
+remote_theme: yous/whiteglass
+permalink: /:title/
 
 # 🎛️ Code Syntax Highlighting Engine
 markdown: kramdown
@@ -15,20 +13,16 @@ kramdown:
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:
-      line_numbers: true   # Renders clean structural line numbers for your JS blocks
+      line_numbers: true   # Renders clean line numbers for your JS blocks
 
 # 🌐 Core Repository and Domain Overrides
 repository: Priyammondal/javascript-interview-manual
 url: "https://priyammondal.github.io"
 baseurl: "/javascript-interview-manual"
 
-# 👨‍💻 Author Profile Meta Configuration (Parsed cleanly by Rain's footer/header links)
+# 👨‍💻 Author Profile Meta Configuration
 author:
   name: "Priyam Mondal"
-  email: "priyammondal096@gmail.com"
-  github: "Priyammondal"
-
-social:
   email: "priyammondal096@gmail.com"
   github: "Priyammondal"
 

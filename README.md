@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "JavaScript Master Interview Manual"
+title: ""
 permalink: /
 ---
 # 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide
