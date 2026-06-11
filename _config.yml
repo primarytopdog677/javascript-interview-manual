@@ -2,6 +2,15 @@ title: ""
 description: "The ultimate production-grade crunch-time revision framework engineered for Senior SDE loops."
 show_downloads: false
 
+# 🎛️ Clean Markdown Parsing & Highlight Engine
+markdown: kramdown
+kramdown:
+  input: GFM               # Keeps tables, checklists, and alert boxes rendering perfectly
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true   # Clean, professional line numbers on your JS snippets
+
 # 🌐 Core Repository and Domain Overrides
 repository: Priyammondal/javascript-interview-manual
 url: "https://priyammondal.github.io"
