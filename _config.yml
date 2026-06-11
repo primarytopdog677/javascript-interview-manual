@@ -2,23 +2,33 @@ title: ""
 description: "The ultimate production-grade crunch-time revision framework engineered for Senior SDE loops."
 show_downloads: false
 
-# 🎛️ Clean Markdown Parsing & Highlight Engine
+# 🎨 Premium Remote Layout: inelaah/rain
+remote_theme: inelaah/rain
+incremental: true          
+sass:
+  style: :compressed       
+
+# 🎛️ Code Syntax Highlighting Engine
 markdown: kramdown
 kramdown:
-  input: GFM               # Keeps tables, checklists, and alert boxes rendering perfectly
+  input: GFM               # Keeps your dynamic shields badges and tables parsing flawlessly
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:
-      line_numbers: true   # Clean, professional line numbers on your JS snippets
+      line_numbers: true   # Renders clean structural line numbers for your JS blocks
 
 # 🌐 Core Repository and Domain Overrides
 repository: Priyammondal/javascript-interview-manual
 url: "https://priyammondal.github.io"
 baseurl: "/javascript-interview-manual"
 
-# 👨‍💻 Author Profile Meta Configuration
+# 👨‍💻 Author Profile Meta Configuration (Parsed cleanly by Rain's footer/header links)
 author:
   name: "Priyam Mondal"
+  email: "priyammondal096@gmail.com"
+  github: "Priyammondal"
+
+social:
   email: "priyammondal096@gmail.com"
   github: "Priyammondal"
 

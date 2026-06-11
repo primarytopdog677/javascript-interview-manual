@@ -236,19 +236,6 @@ function add(x, y) { return x + y; }
 ```
 
 -   **Engine Action:** Completely ignored during this phase because its structural definition was already handled during the memory creation phase.
-## Updated Table of Contents
-
--   [History, Engines, and Runtimes of JavaScript](https://www.google.com/search?q=%23history-engines-and-runtimes-of-javascript)
-    
--   [Integrating JavaScript into HTML](https://www.google.com/search?q=%23integrating-javascript-into-html)
-    
--   [Variables and Scopes in JavaScript](https://www.google.com/search?q=%23variables-and-scopes-in-javascript)
-    
--   [Lexical Scope vs. Closure](https://www.google.com/search?q=%23lexical-scope-vs-closure)
-    
--   [The Two Phases of Code Execution](https://www.google.com/search?q=%23the-two-phases-of-code-execution)
-    
--   [Hoisting and the Temporal Dead Zone (TDZ)](https://www.google.com/search?q=%23hoisting-and-the-temporal-dead-zone-tdz)
     
 
 # Hoisting and the Temporal Dead Zone (TDZ)
@@ -431,24 +418,6 @@ For code paths running heavily (like a massive game loop or data processing math
 JavaScript is dynamically typed, meaning a variable can change from an integer to a string at any moment. TurboFan speculates that this won't happen to keep your code fast.
 
 If TurboFan optimized a function assuming `x` and `y` are always integers, and you suddenly pass a string (`"hello"`), a safety guard fails. The engine immediately triggers Deoptimization. It throws away the optimized TurboFan machine code, reconstructs the execution state, and safely drops execution back down to the Sparkplug or Ignition layers to process the string safely (albeit more slowly).
-
-## Updated Table of Contents
-
--   [History, Engines, and Runtimes of JavaScript](https://www.google.com/search?q=%23history-engines-and-runtimes-of-javascript)
-    
--   [Integrating JavaScript into HTML](https://www.google.com/search?q=%23integrating-javascript-into-html)
-    
--   [Variables and Scopes in JavaScript](https://www.google.com/search?q=%23variables-and-scopes-in-javascript)
-    
--   [Lexical Scope vs. Closure](https://www.google.com/search?q=%23lexical-scope-vs-closure)
-    
--   [The Two Phases of Code Execution](https://www.google.com/search?q=%23the-two-phases-of-code-execution)
-    
--   [Hoisting and the Temporal Dead Zone (TDZ)](https://www.google.com/search?q=%23hoisting-and-the-temporal-dead-zone-tdz)
-    
--   [JavaScript Execution Pipeline](https://www.google.com/search?q=%23javascript-execution-pipeline)
-    
--   [var vs. let vs. const](https://www.google.com/search?q=%23var-vs-let-vs-const)
     
 
 # var vs. let vs. const
@@ -494,25 +463,6 @@ If TurboFan optimized a function assuming `x` and `y` are always integers, and y
 | **Re-assignment Support**      | Yes            | Yes                       | No (Throws `TypeError`)   |
 | **Initial Memory Phase State** | `undefined`    | `<uninitialized>` (TDZ)   | `<uninitialized>` (TDZ)   |
 
-## Updated Table of Contents
-
--   [History, Engines, and Runtimes of JavaScript](https://www.google.com/search?q=%23history-engines-and-runtimes-of-javascript)
-    
--   [Integrating JavaScript into HTML](https://www.google.com/search?q=%23integrating-javascript-into-html)
-    
--   [Variables and Scopes in JavaScript](https://www.google.com/search?q=%23variables-and-scopes-in-javascript)
-    
--   [Lexical Scope vs. Closure](https://www.google.com/search?q=%23lexical-scope-vs-closure)
-    
--   [The Two Phases of Code Execution](https://www.google.com/search?q=%23the-two-phases-of-code-execution)
-    
--   [Hoisting and the Temporal Dead Zone (TDZ)](https://www.google.com/search?q=%23hoisting-and-the-temporal-dead-zone-tdz)
-    
--   [JavaScript Execution Pipeline](https://www.google.com/search?q=%23javascript-execution-pipeline)
-    
--   [var vs. let vs. const](https://www.google.com/search?q=%23var-vs-let-vs-const)
-    
--   [Data Types in JavaScript](https://www.google.com/search?q=%23data-types-in-javascript)
     
 
 # Data Types in JavaScript
@@ -970,34 +920,6 @@ typeof null // "object"
 ### Why does `typeof null` return `"object"`?
 
 `null` is a primitive datatype, so why then is its type `"object"` and not `"null"`? This is an error in the language; it’s not actually an object. It is not being corrected because of backward compatibility issues.
-
-## Updated Table of Contents
-
--   [History, Engines, and Runtimes of JavaScript](https://www.google.com/search?q=%23history-engines-and-runtimes-of-javascript)
-    
--   [Integrating JavaScript into HTML](https://www.google.com/search?q=%23integrating-javascript-into-html)
-    
--   [Variables and Scopes in JavaScript](https://www.google.com/search?q=%23variables-and-scopes-in-javascript)
-    
--   [Lexical Scope vs. Closure](https://www.google.com/search?q=%23lexical-scope-vs-closure)
-    
--   [The Two Phases of Code Execution](https://www.google.com/search?q=%23the-two-phases-of-code-execution)
-    
--   [Hoisting and the Temporal Dead Zone (TDZ)](https://www.google.com/search?q=%23hoisting-and-the-temporal-dead-zone-tdz)
-    
--   [JavaScript Execution Pipeline](https://www.google.com/search?q=%23javascript-execution-pipeline)
-    
--   [var vs. let vs. const](https://www.google.com/search?q=%23var-vs-let-vs-const)
-    
--   [Data Types in JavaScript](https://www.google.com/search?q=%23data-types-in-javascript)
-    
--   [Advanced Collections: Map and Set](https://www.google.com/search?q=%23advanced-collections-map-and-set)
-    
--   [Memory Management: WeakMap and WeakSet](https://www.google.com/search?q=%23memory-management-weakmap-and-weakset)
-    
--   [The typeof Operator Quirks](https://www.google.com/search?q=%23the-typeof-operator-quirks)
-    
--   [Type Conversions](https://www.google.com/search?q=%23type-conversions)
     
 
 # Type Conversions
