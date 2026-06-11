@@ -2,34 +2,31 @@ title: ""
 description: "The ultimate production-grade crunch-time revision framework engineered for Senior SDE loops."
 show_downloads: false
 
-# 🎨 Premium Theme & UI Layout Enhancements
-theme: jekyll-theme-cayman # Modern, highly-responsive structural layout
-incremental: true          # Accelerates site build times on new pushes
+# 🎨 Clean, Minimalist Documentation Layout
+theme: jekyll-theme-minimal
+incremental: true          
 sass:
-  style: :compressed       # Minimizes CSS payloads for lightning-fast loading
+  style: :compressed       
 
 # 🎛️ Code Syntax Highlighting Engine
 markdown: kramdown
 kramdown:
-  input: GFM               # Forces GitHub Flavored Markdown parsing (enables tables & checklists)
+  input: GFM               # Keeps tables, checklists, and callouts working perfectly
   syntax_highlighter: rouge
   syntax_highlighter_opts:
     block:
-      line_numbers: true   # Appends clean line numbers to your JavaScript code blocks
+      line_numbers: true   # Clean code block line numbers
 
 # 🌐 Core Repository and Domain Overrides
 repository: Priyammondal/javascript-interview-manual
 url: "https://priyammondal.github.io"
 baseurl: "/javascript-interview-manual"
 
-# 👨‍💻 Author Profile Meta Configuration
+# 👨‍💻 Author Profile Meta Configuration (Minimal theme parses this into a sleek sidebar!)
 author:
   name: "Priyam Mondal"
   email: "priyammondal096@gmail.com"
-  twitter: "" 
   github: "Priyammondal"
-  portfolio: "https://priyammondal.github.io/portfolio"
-  medium: "thepriyammondal"
 
 # 🖼️ Open Graph Visual Branding Assets
 og_image: "assets/banner.png"
