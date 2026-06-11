@@ -5,10 +5,12 @@ permalink: /
 ---
 
 <style>
-  /* Completely hides the floating language indicator labels on code blocks */
-  .code-block::before, [class^="language-"]::before, .highlight::before {
-    display: none !important;
-  }
+ #main-header{
+  display: none !important;
+ };
+.main-content-wrap{
+  padding-top: 0 !important;
+}
 </style>
 # 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide
 
@@ -123,8 +125,6 @@ You can introduce JavaScript into an HTML document using two distinct structural
 
 Code is written directly inside the HTML file, encapsulated within `<script></script>` tags. The browser allows **multiple script tags** to be declared and executed within the same HTML file.
 
-HTML
-
 ```
 <script>
   console.log("This is internal JavaScript executing inside the HTML file.");
@@ -135,8 +135,6 @@ HTML
 ### 2. External JavaScript
 
 Code is completely decoupled into a standalone `.js` file. It is linked back to the HTML document by utilizing the `src` (source) attribute on the script tag.
-
-HTML
 
 ```
 <script src="path/to/script.js"></script>
@@ -228,8 +226,6 @@ The Thread of Execution runs the code sequentially line-by-line, updating the va
 
 ### Example: Variable Assignment
 
-JavaScript
-
 ```
 var a = 10;
 
@@ -239,8 +235,6 @@ var a = 10;
     
 
 ### Example: Function Declaration
-
-JavaScript
 
 ```
 function add(x, y) { return x + y; }
@@ -262,8 +256,6 @@ While we often say declarations are "moved to the top," the physical code doesn'
 
 That's why the below code won't give an error, but `undefined` will be printed on the console:
 
-JavaScript
-
 ```
 console.log(age); // undefined
 var age = 24;
@@ -282,8 +274,6 @@ TDZ is different for `var` in comparison to `const` and `let`.
 
 ### Example 1
 
-JavaScript
-
 ```
 {
   // 🟢 bestFood’s TDZ starts here (at the beginning of this block scope)
@@ -301,8 +291,6 @@ JavaScript
 ```
 
 ### Example 2
-
-JavaScript
 
 ```
 {
@@ -323,8 +311,6 @@ A `let` variable's TDZ ends the moment its declaration line is evaluated, even i
 ## How `var` Works Differently
 
 Because `var` is hoisted and initialized with `undefined` at the exact same moment during the Memory Creation phase, it never experiences a TDZ.
-
-JavaScript
 
 ```
 {
@@ -347,8 +333,6 @@ Therefore, a `let` (or `const`) variable’s TDZ ends when JavaScript fully init
 Classes follow the exact same rules as `let` and `const`. Under the hood, a class is hoisted during the Memory Creation phase, but it remains uninitialized, meaning it is trapped inside the Temporal Dead Zone (TDZ).
 
 The TDZ for a class starts at the beginning of the block and ends only when the engine executes the actual class declaration line. If you try to instantiate (`new`) or access the class before that line, JavaScript will throw a `ReferenceError`.
-
-JavaScript
 
 ```
 {
@@ -491,8 +475,6 @@ There are a total of 7 primitive datatypes in JavaScript.
 
 It could be an integer value or it could be a floating value.
 
-JavaScript
-
 ```
 let n = 45;
 let x = 34.67; 
@@ -501,9 +483,7 @@ let x = 34.67;
 
 Besides regular numbers, there are so-called "special numeric values" which also belong to this data type: `Infinity`, `-Infinity`, and `NaN`.
 
-`Infinity` represents the mathematical Infinity $\infty$. It is a special value that’s greater than or less than any number. We can get it as a result of division by zero:
-
-JavaScript
+Infinity represents the mathematical Infinity ∞. It is a special value that’s greater than or less than any number. We can get it as a result of division by zero:
 
 ```
 alert( 1 / 0 ); // Infinity
@@ -512,16 +492,12 @@ alert( 1 / 0 ); // Infinity
 
 `NaN` represents a computational error. It is a result of an incorrect or an undefined mathematical operation:
 
-JavaScript
-
 ```
 alert( "not a number" / 2 ); // NaN, such division is erroneous
 
 ```
 
 `NaN` is sticky. Any further mathematical operation on `NaN` returns `NaN`:
-
-JavaScript
 
 ```
 alert( NaN + 1 ); // NaN
@@ -539,8 +515,6 @@ In JavaScript, the "number" type cannot safely represent integer values larger t
 For most purposes $\pm(2^{53} - 1)$ range is quite enough, but sometimes we need the entire range of really big integers, e.g., for cryptography or microsecond-precision timestamps. The `BigInt` type was added to the language to represent integers of arbitrary length.
 
 A `BigInt` value is created by appending `n` to the end of an integer:
-
-JavaScript
 
 ```
 // the "n" at the end means it's a BigInt
@@ -563,8 +537,6 @@ Double and single quotes are “simple” quotes. There’s practically no diffe
 
 Backticks are “extended functionality” quotes. They allow us to embed variables and expressions into a string by wrapping them in `${...}`:
 
-JavaScript
-
 ```
 let name = "John";
 
@@ -580,8 +552,6 @@ alert( `the result is ${1 + 2}` ); // the result is 3
 
 The boolean type has only two values: `true` and `false`.
 
-JavaScript
-
 ```
 let nameFieldChecked = true; // yes, name field is checked
 let ageFieldChecked = false; // no, age field is not changed
@@ -591,8 +561,6 @@ let ageFieldChecked = false; // no, age field is not changed
 ### null
 
 Intentional absence of data.
-
-JavaScript
 
 ```
 let age = null;
@@ -605,8 +573,6 @@ In JavaScript, `null` is not a “reference to a non-existing object” or a “
 
 The meaning of `undefined` is “value is not assigned”. If a variable is declared, but not assigned, then its value is `undefined`:
 
-JavaScript
-
 ```
 let age;
 alert(age); // shows "undefined"
@@ -614,8 +580,6 @@ alert(age); // shows "undefined"
 ```
 
 Technically, it is possible to explicitly assign `undefined` to a variable:
-
-JavaScript
 
 ```
 age = undefined;
@@ -629,8 +593,6 @@ But it is not recommended. Normally, one uses `null` to assign an “empty” or
 
 Introduced in ES6 to create completely unique, immutable identifiers. Even if you create two symbols with the exact same description, they are fundamentally unique. This is used to create unique identifiers for objects.
 
-JavaScript
-
 ```
 let id = Symbol("id");
 
@@ -643,8 +605,6 @@ let id = Symbol("id");
 The object type is special. Unlike primitives, objects are mutable collections of key-value pairs stored in the heap memory. Variables do not hold the object itself; they hold a memory pointer (reference) to where the object sits.
 
 All other types are called “primitive” because their values can contain only a single thing (be it a string or a number or whatever). In contrast, objects are used to store collections of data and more complex entities. And these are copied by reference.
-
-JavaScript
 
 ```
 let userInfo = {
@@ -682,8 +642,6 @@ Map is a collection of keyed data items, just like an Object. But the main diffe
 -   `map.size` – returns the current element count.
     
 
-JavaScript
-
 ```
 let recipeMap = new Map([
   ['cucumber', 500],
@@ -708,8 +666,6 @@ For looping over a map, there are 3 methods:
 
 Chaining is also possible as `map.set` call returns the map itself:
 
-JavaScript
-
 ```
 map.set('1', 'str1')
   .set(1, 'num1')
@@ -720,8 +676,6 @@ map.set('1', 'str1')
 ### Converting Objects and Maps Flawlessly
 
 **Map from plain object**
-
-JavaScript
 
 ```
 let obj = {
@@ -736,8 +690,6 @@ alert( map.get('name') ); // John
 
 **Object from Map**
 
-JavaScript
-
 ```
 let prices = Object.fromEntries([
   ['banana', 1],
@@ -751,8 +703,6 @@ alert(prices.orange); // 2
 ```
 
 **Flawless Conversion Snippet Summary**
-
-JavaScript
 
 ```
 // A. Plain Object ──► Map
@@ -802,8 +752,6 @@ JavaScript engine keeps a value in memory while it is “reachable” and can po
 
 If we put an object into an array, then while the array is alive, the object will be alive as well, even if there are no other references to it.
 
-JavaScript
-
 ```
 let john = { name: "John" };
 let array = [ john ];
@@ -817,8 +765,6 @@ john = null; // overwrite the reference
 ```
 
 Similar to that, if we use an object as the key in a regular Map, then while the Map exists, that object exists as well. It occupies memory and may not be garbage collected.
-
-JavaScript
 
 ```
 let john = { name: "John" };
@@ -842,8 +788,6 @@ It holds a "weak" link to the key. If that key object has no other strong refere
 
 Now, if we use an object as the key in it, and there are no other references to that object – it will be removed from memory (and from the map) automatically.
 
-JavaScript
-
 ```
 let john = { name: "John" };
 let weakMap = new WeakMap();
@@ -856,8 +800,6 @@ john = null; // overwrite the reference
 ```
 
 ### Allowed vs. Forbidden Keys (Post-ES2023)
-
-JavaScript
 
 ```
 let weakMap = new WeakMap();
@@ -893,8 +835,6 @@ WeakMap has only the following methods:
 
 A WeakSet is a Set-like collection that only stores unique Objects and unique Symbols. Like WeakMap, it holds weak references to its contents. Like Set, it supports `add`, `has` and `delete`, but not `size`, `keys()` and no iterations.
 
-JavaScript
-
 ```
 let visitedUsers = new WeakSet();
 
@@ -912,8 +852,6 @@ WeakMap and WeakSet are used as “secondary” data structures in addition to t
 # The typeof Operator Quirks
 
 The `typeof` operator returns the type of the operand.
-
-JavaScript
 
 ```
 typeof undefined // "undefined"
@@ -944,8 +882,6 @@ This is when the JavaScript engine automatically converts types behind the scene
 
 If any operand is a string, JavaScript converts the other to a string and concatenates them together.
 
-JavaScript
-
 ```
 "5" + 2    // "52" (Number 2 becomes string "2")
 true + "b" // "trueb"
@@ -955,8 +891,6 @@ true + "b" // "trueb"
 ### Other Mathematical Operators (`-`, `*`, `/`, `%`)
 
 These operators always force values into Numbers.
-
-JavaScript
 
 ```
 "6" - "2"  // 4
@@ -973,8 +907,6 @@ This is when you intentionally use built-in constructors (`String()`, `Number()`
 
 Pretty straightforward. Using `String(value)` or calling `value.toString()` wraps the raw value in quotes.
 
-JavaScript
-
 ```
 String(null)      // "null"
 String(undefined) // "undefined"
@@ -984,8 +916,6 @@ String(undefined) // "undefined"
 ### Numeric Conversion
 
 Occurs when using `Number(value)` or applying the unary plus operator (`+value`).
-
-JavaScript
 
 ```
 let value1 = "6";      // string
@@ -1012,8 +942,6 @@ value1 = Number(value1); // now it is converted to a number
 
 When using `Boolean(value)`, JavaScript splits the entire universe into two categories: Truthy and Falsy. There are only 8 Falsy values in JavaScript that turn into `false`. Everything else resolves to `true`.
 
-JavaScript
-
 ```
 // The 8 Falsy Values:
 Boolean(false)     // false
@@ -1032,8 +960,6 @@ Boolean(NaN)       // false
 
 An operator is binary if it has two operands.
 
-JavaScript
-
 ```
 let x = 1, y = 3;
 alert( y - x ); // 2, binary minus subtracts values
@@ -1044,8 +970,6 @@ alert( 8 % 3 ); // 2, the remainder of 8 divided by 3
 
 ### String Concatenation with Binary `+`
 
-JavaScript
-
 ```
 let s = "my" + "string";
 alert(s); // mystring
@@ -1053,8 +977,6 @@ alert(s); // mystring
 ```
 
 If any of the operands is a string, then the other one is converted to a string too if the operand is `+`:
-
-JavaScript
 
 ```
 alert( '1' + 2 ); // "12"
@@ -1066,8 +988,6 @@ alert( '1' + 2 + 2 ); // "122" and not "14"
 
 The binary `+` is the only operator that supports strings in such a way. Other arithmetic operators work only with numbers and always convert their operands to numbers.
 
-JavaScript
-
 ```
 alert( 6 - '2' ); // 4, converts '2' to a number
 alert( '6' / '2' ); // 3, converts both operands to numbers
@@ -1077,8 +997,6 @@ alert( '6' / '2' ); // 3, converts both operands to numbers
 ## Unary Operators (`+`, `-`)
 
 An operator is unary if it has a single operand. For example, the unary negation `-` reverses the sign of a number:
-
-JavaScript
 
 ```
 let x = 1;
@@ -1090,8 +1008,6 @@ alert( x ); // -1, unary negation was applied
 ### Numeric Conversion with Unary `+`
 
 The unary plus applied to a single value doesn’t do anything to numbers. But if the operand is not a number, the unary plus converts it into a number. It actually does the same thing as `Number(...)`, but is shorter.
-
-JavaScript
 
 ```
 // No effect on numbers
@@ -1115,8 +1031,6 @@ alert( apples + oranges ); // "23", the binary plus concatenates strings
 
 Assignment `=` returns a value. All operators in JavaScript return a value. That’s obvious for `+` and `-`, but also true for `=`. The call `x = value` writes the value into `x` and then returns it.
 
-JavaScript
-
 ```
 let a = 1;
 let b = 2;
@@ -1128,8 +1042,6 @@ alert( c ); // 0
 ```
 
 ### Chaining Assignments
-
-JavaScript
 
 ```
 let a, b, c;
@@ -1143,8 +1055,6 @@ alert( c ); // 4
 
 Chained assignments evaluate from right to left. First, the rightmost expression `2 + 2` is evaluated and then assigned to the variables on the left: `c`, `b`, and `a`. At the end, all the variables share a single value.
 
-JavaScript
-
 ```
 let n = 2;
 n += 5; // now n = 7 (same as n = n + 5)
@@ -1152,8 +1062,6 @@ n *= 2; // now n = 14 (same as n = n * 2)
 alert( n ); // 14
 
 ```
-
-JavaScript
 
 ```
 let n = 2;
@@ -1182,16 +1090,12 @@ The operators `++` and `--` can be placed either before or after a variable:
 
 Both increase the value by one, but the prefix form returns the new value while the postfix form returns the old value (prior to the increment/decrement).
 
-JavaScript
-
 ```
 let counter = 1;
 let a = ++counter; // prefix form increments counter and returns the new value, 2.
 alert(a); // 2
 
 ```
-
-JavaScript
 
 ```
 let counter = 1;
@@ -1201,8 +1105,6 @@ alert(a); // 1
 ```
 
 If the result of the increment/decrement is not used, there is no difference in which form to use:
-
-JavaScript
 
 ```
 let counter = 0;
@@ -1214,15 +1116,11 @@ alert( counter ); // 2
 
 ### Increment/Decrement Among Other Operators
 
-JavaScript
-
 ```
 let counter = 1;
 alert( 2 * ++counter ); // 4
 
 ```
-
-JavaScript
 
 ```
 let counter = 1;
@@ -1279,8 +1177,6 @@ Bitwise operators treat arguments as 32-bit integer numbers and work on the leve
 
 The comma operator allows us to evaluate several expressions, dividing them with a comma `,`. Each of them is evaluated but only the result of the last one is returned.
 
-JavaScript
-
 ```
 let a = (1 + 2, 3 + 4);
 alert( a ); // 7 (the result of 3 + 4)
@@ -1290,8 +1186,6 @@ alert( a ); // 7 (the result of 3 + 4)
 ## Comparison Operators
 
 All comparison operators return a boolean value: `true` or `false`.
-
-JavaScript
 
 ```
 alert( 2 > 1 );  // true
@@ -1304,8 +1198,6 @@ alert( 2 != 1 ); // true
 
 Strings are compared letter-by-letter in lexicographical order:
 
-JavaScript
-
 ```
 alert( 'Z' > 'A' ); // true
 alert( 'Glow' > 'Glee' ); // true
@@ -1317,8 +1209,6 @@ alert( 'Bee' > 'Be' ); // true
 
 When comparing values of different types, JavaScript converts the values to numbers.
 
-JavaScript
-
 ```
 alert( '2' > 1 ); // true, string '2' becomes a number 2
 alert( '01' == 1 ); // true, string '01' becomes a number 1
@@ -1326,8 +1216,6 @@ alert( true == 1 ); // true
 alert( false == 0 ); // true
 
 ```
-
-JavaScript
 
 ```
 let a = 0;
@@ -1348,15 +1236,11 @@ A strict equality operator `===` checks the equality without type conversion. If
 
 ### Comparison with null and undefined
 
-JavaScript
-
 ```
 alert( null === undefined ); // false
 alert( null == undefined ); // true
 
 ```
-
-JavaScript
 
 ```
 // The Strict Equality Anomalies:
@@ -1375,8 +1259,6 @@ console.log(Object.is(-0, +0));   // false
 
 The `if(...)` statement evaluates a condition in parentheses and, if the result is `true`, executes a block of code. The expression in its parentheses is converted to a boolean. The `if` statement may contain an optional `else` block which executes when the condition is falsy.
 
-JavaScript
-
 ```
 let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
 
@@ -1389,8 +1271,6 @@ if (year == 2015) {
 ```
 
 The `else if` clause lets us test several variants of a condition:
-
-JavaScript
 
 ```
 let year = prompt('In which year was the ECMAScript-2015 specification published?', '');
@@ -1409,8 +1289,6 @@ if (year < 2015) {
 
 Sometimes we need to assign a variable depending on a condition.
 
-JavaScript
-
 ```
 let accessAllowed;
 let age = prompt('How old are you?', '');
@@ -1426,14 +1304,10 @@ alert(accessAllowed);
 
 The conditional, question mark, or "Ternary" operator lets us do that in a shorter and simpler way. It is represented by a question mark `?`.
 
-JavaScript
-
 ```
 let result = condition ? value1 : value2;
 
 ```
-
-JavaScript
 
 ```
 let accessAllowed = age > 18 ? true : false;
@@ -1441,8 +1315,6 @@ let accessAllowed = age > 18 ? true : false;
 ```
 
 ### Multiple `?`
-
-JavaScript
 
 ```
 let age = prompt('age?', 18);
@@ -1464,8 +1336,6 @@ There are four logical operators in JavaScript: `||` (OR), `&&` (AND), `!` (NOT)
 
 Logical OR handles boolean values. If any of its arguments are `true`, it returns `true`, otherwise it returns `false`.
 
-JavaScript
-
 ```
 let hour = 9;
 if (hour < 10 || hour > 18) {
@@ -1475,8 +1345,6 @@ if (hour < 10 || hour > 18) {
 ```
 
 We can pass more conditions:
-
-JavaScript
 
 ```
 let hour = 12;
@@ -1490,8 +1358,6 @@ if (hour < 10 || hour > 18 || isWeekend) {
 
 ### OR `||` Finds the First Truthy Value
 
-JavaScript
-
 ```
 result = value1 || value2 || value3;
 
@@ -1503,8 +1369,6 @@ result = value1 || value2 || value3;
     
 -   If all operands have been evaluated (i.e. all were false), returns the last operand.
     
-
-JavaScript
 
 ```
 alert( 1 || 0 ); // 1 (1 is truthy)
@@ -1522,8 +1386,6 @@ Returns `true` if both operands are truthy and `false` otherwise.
 
 ### AND `&&` Finds the First Falsy Value
 
-JavaScript
-
 ```
 result = value1 && value2 && value3;
 
@@ -1535,8 +1397,6 @@ result = value1 && value2 && value3;
     
 -   If all operands have been evaluated (i.e. all were truthy), returns the last operand.
     
-
-JavaScript
 
 ```
 // if the first operand is truthy, AND returns the second operand:
@@ -1557,8 +1417,6 @@ alert( 1 && 2 && 3 ); // 3, the last one
 
 The boolean NOT operator is represented with an exclamation sign `!`.
 
-JavaScript
-
 ```
 result = !value;
 
@@ -1568,8 +1426,6 @@ result = !value;
     
 -   Returns the inverse value.
     
-
-JavaScript
 
 ```
 alert( !true ); // false
@@ -1592,8 +1448,6 @@ The result of `a ?? b` is:
 
 > For safety reasons, JavaScript forbids using `??` together with `&&` and `||` operators, unless the precedence is explicitly specified with parentheses.
 
-JavaScript
-
 ```
 // let x = 1 && 2 ?? 3; // Syntax error
 let x = (1 && 2) ?? 3; // Works
@@ -1611,8 +1465,6 @@ Syntax constructs that are not expressions cannot be used with the ternary opera
 
 For example, if we take this code:
 
-JavaScript
-
 ```
 if (i > 5) {
   alert(i);
@@ -1624,8 +1476,6 @@ if (i > 5) {
 
 ...and rewrite it using a question mark:
 
-JavaScript
-
 ```
 (i > 5) ? alert(i) : continue; // ❌ continue isn't allowed here
 
@@ -1636,8 +1486,6 @@ JavaScript
 # The switch Statement
 
 A `switch` statement can replace multiple `if` checks.
-
-JavaScript
 
 ```
 switch(x) {
@@ -1665,8 +1513,6 @@ The value of `x` is checked for strict equality (`===`) to the value from the fi
 
 ### Example 1
 
-JavaScript
-
 ```
 let a = 2 + 2;
 
@@ -1693,8 +1539,6 @@ Here the `switch` starts to compare from the first case variant that is `3`. The
 ## Grouping of "case"
 
 Several variants of `case` which share the same code can be grouped. For example, if we want the same code to run for `case 3` and `case 5`:
-
-JavaScript
 
 ```
 let a = 3;
@@ -1725,8 +1569,6 @@ Loops are a way to repeat the same code multiple times.
 
 While the condition is truthy, the code from the loop body is executed.
 
-JavaScript
-
 ```
 while (condition) {
   // code
@@ -1737,8 +1579,6 @@ while (condition) {
 
 If the loop body has a single statement, we can omit the curly braces `{…}`:
 
-JavaScript
-
 ```
 let i = 3;
 while (i) alert(i--);
@@ -1748,8 +1588,6 @@ while (i) alert(i--);
 ### do..while Loop
 
 The condition check can be moved below the loop body using the `do..while` syntax.
-
-JavaScript
 
 ```
 do {
@@ -1766,16 +1604,12 @@ The loop will first execute the body, then check the condition, and, while it’
 
 The `for` loop is more complex, but it’s also the most commonly used loop.
 
-JavaScript
-
 ```
 for (begin; condition; step) {
   // ... loop body ...
 }
 
 ```
-
-JavaScript
 
 ```
 for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
@@ -1801,8 +1635,6 @@ Run begin
 
 Any part of `for` can be skipped. For example, we can omit `begin` if we don’t need to do anything at the loop start:
 
-JavaScript
-
 ```
 let i = 0; // we have i already declared and assigned
 
@@ -1813,8 +1645,6 @@ for (; i < 3; i++) { // no need for "begin"
 ```
 
 We can also remove the `step` part:
-
-JavaScript
 
 ```
 let i = 0;
@@ -1828,8 +1658,6 @@ for (; i < 3;) {
 This makes the loop identical to `while (i < 3)`.
 
 We can actually remove everything, creating an infinite loop:
-
-JavaScript
 
 ```
 for (;;) {
@@ -1847,8 +1675,6 @@ Normally, a loop exits when its condition becomes falsy. But we can force the ex
 ### break
 
 It stops the loop immediately, passing control to the first line after the loop.
-
-JavaScript
 
 ```
 let sum = 0;
@@ -1870,8 +1696,6 @@ alert( 'Sum: ' + sum );
 
 It skips the remaining part of the current body iteration and forces the loop to move to the next cycle.
 
-JavaScript
-
 ```
 for (let i = 0; i < 10; i++) {
   // if true, skip the remaining part of the body
@@ -1888,8 +1712,6 @@ for (let i = 0; i < 10; i++) {
 Normally, if you have a nested loop (a loop inside a loop) and you call `break` or `continue`, it only affects the inner loop you are currently standing in. What if you want to break out of the entire nested system from the inside? That is where a Label comes in.
 
 ### Labeling a for loop structure
-
-JavaScript
 
 ```
 // 🟢 Labeling the outer loop
@@ -1910,8 +1732,6 @@ outerLoop: for (let i = 0; i < 3; i++) {
 Loop labels are not exclusive to `for` loops. They work seamlessly with all basic loop structures in JavaScript, including `while` and `do..while`.
 
 ### Labeling a while loop structure
-
-JavaScript
 
 ```
 let i = 0;
@@ -1938,8 +1758,6 @@ Functions allow code to be called many times without repetition when performing 
 
 ## 1. Function Declaration / Named Function / Function Statement
 
-JavaScript
-
 ```
 function showMessage() {
   alert( 'Hello everyone!' );
@@ -1953,8 +1771,6 @@ showMessage();
 ## 2. Anonymous Function / Function Expression
 
 An anonymous function is a function without a name. It is defined as an expression and often used as a callback function or assigned as a value to a variable.
-
-JavaScript
 
 ```
 const multiply = function(a, b) {
@@ -1974,8 +1790,6 @@ const multiply = function(a, b) {
 
 Arrow functions provide a shorter syntax compared to traditional functions. They do not have access to the `arguments` object and they do not have their own `this`.
 
-JavaScript
-
 ```
 const divide = (a, b) => a / b;
 
@@ -1985,8 +1799,6 @@ const divide = (a, b) => a / b;
 
 Modern JS uses the Rest Parameter syntax (`...args`) to capture dynamic arguments inside arrow functions:
 
-JavaScript
-
 ```
 const logArgs = (...args) => console.log(args); // args is a true array!
 
@@ -1995,8 +1807,6 @@ const logArgs = (...args) => console.log(args); // args is a true array!
 ## 4. Higher Order Function (HOF)
 
 A function that takes another function as a parameter or returns a function as a result is called a HOF.
-
-JavaScript
 
 ```
 function operation(add, num1, num2) { // operation is HOF
@@ -2014,8 +1824,6 @@ operation(add, 7, 5);
 
 In JavaScript, functions are treated as first-class citizens, just like any other data type. This means functions can be assigned to variables, passed as arguments to other functions, returned from functions, and stored in data structures like arrays or objects.
 
-JavaScript
-
 ```
 const add = function (a, b) {
   return a + b;
@@ -2032,8 +1840,6 @@ const result2 = mathOperation(4, 5); // result2 will be 9
 
 A pure function always produces the same output for the same input and has no side effects. It does not modify external state or interact with the outside world, making it predictable and easy to reason about.
 
-JavaScript
-
 ```
 function square(number) {
   return number * number;
@@ -2046,8 +1852,6 @@ const result = square(4); // result will be 16
 ## 7. Impure Functions
 
 An impure function may produce different results for the same input or have side effects like modifying external state or interacting with the outside world (e.g., changing global variables, making API calls, or modifying files).
-
-JavaScript
 
 ```
 let total = 0;
@@ -2065,8 +1869,6 @@ const result2 = addToTotal(3); // result2 will be 8 (total was modified by the p
 ## 8. Callback Functions
 
 A callback function is a function passed as an argument to another function and executed after the completion of that function.
-
-JavaScript
 
 ```
 function fetchData(url, callback) {
@@ -2087,8 +1889,6 @@ fetchData('https://example.com/data', processData);
 
 An IIFE is a function that is executed immediately after it is defined. It is typically used to create a private scope and avoid polluting the global namespace.
 
-JavaScript
-
 ```
 (function() {
   // Code here is executed immediately
@@ -2101,8 +1901,6 @@ JavaScript
 Constructor functions are technical blueprints used to instantiate multiple objects of the same structural shape. They are structurally normal functions, but by convention, they are named with a Capitalized First Letter and must be invoked using the `new` keyword.
 
 When you call a function with `new`, JavaScript secretly creates a brand new blank object `{}` in memory, assigns it to the keyword `this`, executes your constructor logic to attach properties, and then automatically returns `this` at the very end.
-
-JavaScript
 
 ```
 function User(name, role) {
@@ -2120,8 +1918,6 @@ console.log(sde1.name); // "Ramesh"
 # Modern Class Architecture
 
 Modern JavaScript classes (ES6+) provide a clean, declarative syntax built directly over the language's native prototypal inheritance engine. Advanced class specifications introduce true, runtime-enforced security boundaries and class-level memory spaces.
-
-JavaScript
 
 ```
 // 🅰️ The Base Parent Class
@@ -2194,8 +1990,6 @@ Calling the `next()` method on the generator object executes the function until 
 
 The `yield` keyword pauses and resumes execution. The state of the function is retained so that execution resumes directly from the last evaluated `yield` statement.
 
-JavaScript
-
 ```
 function* countNumber() {
   let number = 1;
@@ -2236,8 +2030,6 @@ The generator function `countNumber` produces a sequence of numbers from 1 to 10
 
 We can pass generator objects directly into a standard `for..of` loop:
 
-JavaScript
-
 ```
 for (let num of countNumber()) {
   console.log(num); // Automatically calls .next() under the hood and unwraps the value!
@@ -2248,8 +2040,6 @@ for (let num of countNumber()) {
 ## 12. Currying (Functional Transformation via Closures)
 
 Currying transforms a function $f(a, b, c)$ into a callable chain $f(a)(b)(c)$.
-
-JavaScript
 
 ```
 const buildLogger = (environment) => (serviceName) => (message) => {
@@ -2283,8 +2073,6 @@ Object keys were historically unordered, but modern JavaScript objects follow a 
 
 ### 1. Object Literal
 
-JavaScript
-
 ```
 const person = {
     name: "John",
@@ -2297,8 +2085,6 @@ const person = {
 ```
 
 ### 2. Constructor Function
-
-JavaScript
 
 ```
 function Person(name, age) {
@@ -2314,8 +2100,6 @@ const person = new Person("John", 30);
 ```
 
 ### 3. Object Constructor
-
-JavaScript
 
 ```
 const person = new Object();
@@ -2340,8 +2124,6 @@ Copies all enumerable own properties from one or more source objects to a target
 
 `Object.create(proto)` doesn't just copy properties; it establishes a live, real-time fallback link called the Prototype Chain (`__proto__`). If you try to read a property on the new object and it doesn't exist, the JavaScript engine looks "upward" into the proto object to find it.
 
-JavaScript
-
 ```
 const animal = { eats: true };
 const rabbit = Object.create(animal); // rabbit inherits animal
@@ -2352,8 +2134,6 @@ console.log(rabbit.hasOwnProperty("eats")); // 🛑 false (It belongs to the par
 ```
 
 ## Accessing Object properties and methods and some useful tricks
-
-JavaScript
 
 ```
 const person = {
@@ -2369,8 +2149,6 @@ const person = {
 
 ### 1. Dot (.) notation
 
-JavaScript
-
 ```
 console.log(person.name) // "Robin"
 console.log(person.age) // 24
@@ -2381,16 +2159,12 @@ console.log(person.age) // 24
 
 The dot requires the key to be a valid variable identifier. That implies: contains no spaces, doesn’t start with a digit, and doesn’t include special characters (`$` and `_` are allowed). There’s an alternative “square bracket notation” that works with any string.
 
-JavaScript
-
 ```
 console.log(person["work doing"]) // "software Engineer"
 
 ```
 
 ### 3. Calling methods (functions inside an Object)
-
-JavaScript
 
 ```
 person.greeting() // "Good Morning Mr. Robin"
@@ -2399,16 +2173,12 @@ person.greeting() // "Good Morning Mr. Robin"
 
 ### 4. Adding new properties to an Object
 
-JavaScript
-
 ```
 person.hobby = "Coding"
 
 ```
 
 ### 5. Deleting a property
-
-JavaScript
 
 ```
 delete person.hobby
@@ -2417,8 +2187,6 @@ delete person.hobby
 
 ### 6. Getting an array of the Keys of the Object
 
-JavaScript
-
 ```
 console.log(Object.keys(person))
 
@@ -2426,16 +2194,12 @@ console.log(Object.keys(person))
 
 ### 7. Getting an array of the Values of the Object
 
-JavaScript
-
 ```
 console.log(Object.values(person))
 
 ```
 
 ### 8. Getting all the key-value pairs of the Object
-
-JavaScript
 
 ```
 console.log(Object.entries(person))
@@ -2446,8 +2210,6 @@ console.log(Object.entries(person))
 
 **Way 1:**
 
-JavaScript
-
 ```
 let user = { name: "John", age: 30 };
 alert( "age" in user ); // true, user.age exists
@@ -2456,8 +2218,6 @@ alert( "blabla" in user ); // false, user.blabla doesn't exist
 ```
 
 **Way 2:**
-
-JavaScript
 
 ```
 alert(user.hasOwnProperty("age")) // true, user.age exists
@@ -2468,8 +2228,6 @@ alert(user.hasOwnProperty("blabla")) // false, user.blabla doesn't exist
 ## Computed properties
 
 We can use square brackets inside an object literal when creating an object. That’s called computed properties.
-
-JavaScript
 
 ```
 let fruit = prompt("Which fruit to buy?", "apple");
@@ -2483,8 +2241,6 @@ alert( bag.apple ); // 5 if fruit="apple"
 ## Property names limitations
 
 As we already know, a variable cannot have a name equal to one of the language-reserved words like “for”, “let”, “return” etc. But for an object property, there’s no such restriction:
-
-JavaScript
 
 ```
 // these properties are all right
@@ -2502,8 +2258,6 @@ alert( obj.for + obj.let + obj.return );  // 6
 
 One of the fundamental differences between an object and a primitive data type is that objects are stored and copied “by reference”, whereas primitive values (strings, numbers, booleans, etc.) are always copied “as a whole value”.
 
-JavaScript
-
 ```
 let message = "Hello!";
 let phrase = message;
@@ -2514,8 +2268,6 @@ As a result, we have two independent variables, each one storing the string `"He
 
 Objects are not like that. A variable assigned to an object stores not the object itself, but its “address in memory” – in other words, “a reference” to it.
 
-JavaScript
-
 ```
 let user = {
   name: "John"
@@ -2525,8 +2277,6 @@ let user = {
 
 The object is stored somewhere in memory, while the `user` variable holds a “reference” to it. When an object variable is copied, the reference is copied, but the object itself is not duplicated.
 
-JavaScript
-
 ```
 let user = { name: "John" };
 let admin = user; // copy the reference
@@ -2534,8 +2284,6 @@ let admin = user; // copy the reference
 ```
 
 Now we have two variables, each storing a reference to the same object.
-
-JavaScript
 
 ```
 let user = { name: 'John' };
@@ -2551,8 +2299,6 @@ alert(user.name); // 'Pete', changes are seen from the "user" reference
 
 Two objects are equal only if they are the exact same object reference.
 
-JavaScript
-
 ```
 let a = {};
 let b = a; // copy the reference
@@ -2563,8 +2309,6 @@ alert( a === b ); // true
 ```
 
 Independent objects are not equal, even though they look alike (e.g., both are empty):
-
-JavaScript
 
 ```
 let a = {};
@@ -2579,8 +2323,6 @@ alert( a == b ); // false
 Copying an object variable creates one more reference to the same object. If you need to duplicate an object, here are a few ways to do this:
 
 ### 1. Iteratively Copying
-
-JavaScript
 
 ```
 let user = {
@@ -2604,8 +2346,6 @@ alert( user.name ); // still John in the original object
 
 ### 2. Using `Object.assign`
 
-JavaScript
-
 ```
 let user = { name: "John" };
 
@@ -2624,8 +2364,6 @@ alert(user.canEdit); // true
 
 ### 3. Using the ES6 Spread Operator
 
-JavaScript
-
 ```
 let user = {
   name: "John",
@@ -2641,8 +2379,6 @@ let clone = {...user}; // now clone is a fully independent object with the same 
 ### 4. Nested Cloning
 
 Properties can refer to other objects:
-
-JavaScript
 
 ```
 let user = {
@@ -2667,8 +2403,6 @@ alert(clone.sizes.width); // 60, get the result from the other one
 
 `structuredClone(object)` clones the object with all nested properties.
 
-JavaScript
-
 ```
 let user = {
   name: "John",
@@ -2690,8 +2424,6 @@ alert(clone.sizes.width); // 50, not related
 
 The `structuredClone` method can clone most data types, such as objects, arrays, and primitive values. It also supports circular references, where an object property references the object itself (directly or via a chain of references).
 
-JavaScript
-
 ```
 let user = {};
 // circular reference: user.me references the user itself
@@ -2703,8 +2435,6 @@ alert(clone.me === clone); // true
 ```
 
 > `structuredClone` instantly crashes if it hits a property containing a Function/Method or a DOM node reference.
-
-JavaScript
 
 ```
 // ❌ error
@@ -2719,8 +2449,6 @@ structuredClone({
 It’s common for an object method to need access to the information stored inside the object to do its job. For instance, the code inside `user.sayHi()` may need the name of the user. To access the object, a method can use the `this` keyword.
 
 The value of `this` is the object “before the dot”, the one used to call the method.
-
-JavaScript
 
 ```
 let user = {
@@ -2739,8 +2467,6 @@ user.sayHi(); // John
 
 In JavaScript, the keyword `this` behaves differently from most other programming languages. It can be used in any function, even if it’s not a method of an object.
 
-JavaScript
-
 ```
 function sayHi() {
   alert( this.name );
@@ -2749,8 +2475,6 @@ function sayHi() {
 ```
 
 The value of `this` is evaluated during runtime, depending on the invocation context (call-site). For instance, here the same function is assigned to two different objects and resolves to a different `this` in each call:
-
-JavaScript
 
 ```
 let user = { name: "John" };
@@ -2771,8 +2495,6 @@ admin.f(); // Admin  (this == admin)
 
 ## Calling Without an Object
 
-JavaScript
-
 ```
 function sayHi() {
   alert(this);
@@ -2788,8 +2510,6 @@ In this case, `this` is `undefined` in strict mode. If we try to access `this.na
 Arrow functions are special: they don’t have their “own” `this`. If we reference `this` from such a function, it is looked up lexically from the outer surrounding execution context.
 
 For instance, here `arrow()` uses `this` from the outer `user.sayHi()` method context:
-
-JavaScript
 
 ```
 let user = {
@@ -2838,8 +2558,6 @@ These attributes are managed explicitly using:
 
 When you declare a regular property, JavaScript internally initializes it with all flags set to `true`:
 
-JavaScript
-
 ```
 const user = { name: "Priyam" };
 
@@ -2859,8 +2577,6 @@ const user = { name: "Priyam" };
 
 The actual data stored inside the property.
 
-JavaScript
-
 ```
 const obj = {};
 Object.defineProperty(obj, "age", {
@@ -2873,8 +2589,6 @@ console.log(obj.age); // 25
 ### writable
 
 Controls whether the property's value can be overwritten using an assignment operator.
-
-JavaScript
 
 ```
 const obj = {};
@@ -2891,8 +2605,6 @@ console.log(obj.name); // "John"
 ### enumerable
 
 Controls whether the property appears during object iterations (such as `for..in` loops or `Object.keys()`). If set to `false`, the property is omitted from iterations. It is frequently used for internal tracking properties, hidden metadata, or framework internals.
-
-JavaScript
 
 ```
 const obj = {};
@@ -2917,8 +2629,6 @@ Controls whether the descriptor settings can be modified later, or if the proper
     
 3.  **The One Exception:** If `configurable: false`, you are allowed to change `writable` from `true` to `false`. However, you can never change it back from `false` to `true`.
     
-
-JavaScript
 
 ```
 const obj = {};
@@ -2947,8 +2657,6 @@ Object.defineProperty(obj, "name", { writable: true }); // ❌ TypeError
 ## 2. Getters and Setters (Accessor Properties)
 
 Instead of storing a value directly, an accessor property executes custom interceptor functions when accessed or assigned.
-
-JavaScript
 
 ```
 const user = {
@@ -2979,8 +2687,6 @@ console.log(user.fullName); // "Rakesh Sharma"
 
 You can define accessor functions explicitly on existing objects:
 
-JavaScript
-
 ```
 const obj = {
   first: "Priyam",
@@ -3006,8 +2712,6 @@ These methods let you lock down entire objects at once rather than configuring s
 
 Prevents any new properties from being appended to the object. Existing properties remain fully editable and can still be deleted.
 
-JavaScript
-
 ```
 const obj = { name: "Priyam" };
 Object.preventExtensions(obj);
@@ -3021,8 +2725,6 @@ console.log(obj.age); // undefined (Addition ignored)
 
 Prevents additions and deletions of properties by setting `configurable: false` across every single property automatically. Existing properties can still be modified if their `writable` flag is true.
 
-JavaScript
-
 ```
 const obj = { name: "Priyam" };
 Object.seal(obj); // No properties can be added or deleted now
@@ -3032,8 +2734,6 @@ Object.seal(obj); // No properties can be added or deleted now
 ### `Object.freeze(obj)`
 
 Applies maximum protection. It disables additions, deletions, and all value re-assignments by setting both `configurable: false` and `writable: false` on all existing properties simultaneously.
-
-JavaScript
 
 ```
 const obj = { name: "Priyam" };
@@ -3059,8 +2759,6 @@ You can inspect the exact structural constraints applied to an object with these
 
 ### 1. Hiding Sensitive or Internal Metadata
 
-JavaScript
-
 ```
 Object.defineProperty(obj, "_id", {
   value: 123,
@@ -3070,8 +2768,6 @@ Object.defineProperty(obj, "_id", {
 ```
 
 ### 2. Creating Immutable Configuration Constants
-
-JavaScript
 
 ```
 Object.defineProperty(config, "API_URL", {
@@ -3083,8 +2779,6 @@ Object.defineProperty(config, "API_URL", {
 ```
 
 ### 3. Data Cleansing and Encapsulation with Setters
-
-JavaScript
 
 ```
 Object.defineProperty(user, "email", {
@@ -3126,8 +2820,6 @@ Historically, developers used the internal property `__proto__` (pronounced "dun
 -   `Object.create(proto)`: Creates a brand new object with a specified prototype linked immediately.
     
 
-JavaScript
-
 ```
 let animal = {
   eats: true,
@@ -3149,8 +2841,6 @@ console.log(rabbit.hasOwnProperty("eats")); // 🛑 false (Inherited, not its ow
 
 ### `Object.create(null)` — The Prototype-less Object
 
-JavaScript
-
 ```
 const pureObj = Object.create(null);
 
@@ -3170,8 +2860,6 @@ Every individual object instance has a `__proto__` reference linking to its arch
 ### B. `prototype` (Constructor Property)
 
 Only Constructor Functions (or Classes) have a `.prototype` property. It is a plain object containing properties and methods that will be assigned as the `__proto__` link for any future instances created using the `new` keyword.
-
-JavaScript
 
 ```
 function Person(name) {
@@ -3196,8 +2884,6 @@ No matter where a method is found—whether directly on the object or high up on
 
 > Prototypes do not share state; they only share structural methods.
 
-JavaScript
-
 ```
 let user = {
   name: "Guest",
@@ -3218,8 +2904,6 @@ user.identify();  // 🟢 "Logged in as: Guest"  ('this' points to user)
 
 If an object defines a property with the exact same name as a property sitting higher up on its prototype chain, the object's property **shadows** (hides) the prototype's version.
 
-JavaScript
-
 ```
 let parent = { job: "Unemployed" };
 let child = Object.create(parent);
@@ -3237,8 +2921,6 @@ console.log(parent.job); // 🟢 "Unemployed" (Parent remains completely untouch
 Prototypal inheritance is highly optimized for performance and memory management.
 
 Instead of copying functions into every single object instance (which wastes RAM when creating thousands of objects), you store the method once on the prototype blueprint. Every instance shares the exact same memory address for that function.
-
-JavaScript
 
 ```
 // ❌ Bad memory practice: creates a new function copy inside every single instance
@@ -3269,16 +2951,12 @@ If you use any other type (such as a number or boolean), the JavaScript engine a
 
 A Symbol represents a completely unique identifier. A value of this type can be instantiated using the factory function `Symbol()`:
 
-JavaScript
-
 ```
 let id = Symbol();
 
 ```
 
 Upon creation, we can give symbols an optional description (also known as a symbol name). This description is used primarily for debugging purposes:
-
-JavaScript
 
 ```
 // id is a symbol with the description "id"
@@ -3289,8 +2967,6 @@ let id = Symbol("id");
 ### Guaranteed Uniqueness
 
 Symbols are guaranteed to be structurally unique. Even if we create multiple symbols with the exact same description string, they are completely distinct values in memory:
-
-JavaScript
 
 ```
 let id1 = Symbol("id");
@@ -3304,8 +2980,6 @@ alert(id1 == id2); // false
 
 Most primitive values in JavaScript support implicit conversion to a string. Symbols are special and do not auto-convert:
 
-JavaScript
-
 ```
 let id = Symbol("id");
 alert(id); // ❌ TypeError: Cannot convert a Symbol value to a string
@@ -3313,8 +2987,6 @@ alert(id); // ❌ TypeError: Cannot convert a Symbol value to a string
 ```
 
 This acts as a built-in language guard to prevent mixing up fundamentally different primitive data types. If you want to log or display a symbol, you must call `.toString()` explicitly:
-
-JavaScript
 
 ```
 let id = Symbol("id");
@@ -3325,8 +2997,6 @@ alert(id.toString()); // "Symbol(id)"
 ## Symbols as Object Properties
 
 To use a symbol as a key inside an object literal `{...}`, you must wrap the symbol variable name in computed property square brackets:
-
-JavaScript
 
 ```
 let id = Symbol("id");
@@ -3346,8 +3016,6 @@ Symbolic properties are intentionally skipped by standard object parsing mechani
     
 -   `Object.keys(user)` and `Object.values(user)` completely ignore them.
     
-
-JavaScript
 
 ```
 let id = Symbol("id");
@@ -3372,8 +3040,6 @@ This encapsulation ensures that external scripts, tools, or third-party librarie
 
 While loop mechanisms hide symbols, `Object.assign()` breaks this rule. It copies both string and symbol properties when shallow-cloning:
 
-JavaScript
-
 ```
 let id = Symbol("id");
 let user = {
@@ -3393,8 +3059,6 @@ Sometimes we want completely separate parts of our codebase (or different indepe
 
 This method searches the global registry for a symbol matching the given description string. If found, it returns that symbol reference. If it doesn't exist, it instantiates it globally first, then hands it back:
 
-JavaScript
-
 ```
 // Read from the global registry (instantiates it here)
 let id = Symbol.for("id"); 
@@ -3411,8 +3075,6 @@ alert(id === idAgain); // true
 
 To pass a global symbol in and retrieve its global registry description string, use `Symbol.keyFor()`:
 
-JavaScript
-
 ```
 let sym = Symbol.for("name");
 let sym2 = Symbol.for("id");
@@ -3425,8 +3087,6 @@ alert(Symbol.keyFor(sym2)); // "id"
 ### Registry Symbols vs. Local Symbols
 
 `Symbol.keyFor()` uses the global registry space. It cannot parse regular, locally instantiated symbols. If a symbol is not global, it returns `undefined`. However, all symbols have a native `.description` getter property to read their raw labels locally:
-
-JavaScript
 
 ```
 let globalSymbol = Symbol.for("name");
@@ -3471,8 +3131,6 @@ Older legacy methods like `Object.defineProperty()` throw a fatal, app-crashing 
 
 Reflect methods do not throw exceptions on standard execution failures; instead, they return a simple `true` or `false` boolean flag indicating whether the action succeeded.
 
-JavaScript
-
 ```
 const user = { name: "Priyam" };
 Object.freeze(user); // Lock the object completely
@@ -3495,8 +3153,6 @@ if (!success) {
 ## Creating a Basic Proxy
 
 To create a Proxy, you instantiate a `new Proxy()` constructor passing it two arguments: the **target** (the raw object data) and the **handler** (the configuration object containing your custom interceptor traps).
-
-JavaScript
 
 ```
 const targetObj = { name: "Priyam", score: 85 };
@@ -3538,8 +3194,6 @@ ownKeys(target)                    ──► Reflect.ownKeys(...)
 
 ### A. Data Validation & Type Safety
 
-JavaScript
-
 ```
 const userProfile = { username: "priyam_m", age: 24 };
 
@@ -3561,8 +3215,6 @@ secureProfile.age = 25;       // 🟢 Works perfectly
 ```
 
 ### B. Schema Protection & Privacy
-
-JavaScript
 
 ```
 const DBRecord = {
@@ -3591,8 +3243,6 @@ console.log(Object.keys(hiddenRecord)); // 🟢 ["title", "status"] (Secret key 
 
 ### C. Setting Fallbacks for Missing Keys
 
-JavaScript
-
 ```
 const translation = { hello: "Bonjour", goodbye: "Au revoir" };
 
@@ -3614,8 +3264,6 @@ console.log(safeTranslation.welcome); // "⚠️ [Key "welcome" missing]"
 
 A common mistake when writing a `get` trap is directly returning the raw property lookup from the target reference:
 
-JavaScript
-
 ```
 // ❌ Dangerous Anti-Pattern
 get(target, prop) {
@@ -3627,8 +3275,6 @@ get(target, prop) {
 **Why this breaks your code:** If another object subsequently inherits your proxy via prototypal inheritance (e.g., `const subclass = Object.create(proxyObj)`), using `target[prop]` breaks the dynamic execution binding of the `this` keyword. It forces `this` inside methods to point backward to the original base proxy target object rather than evaluating the current active calling instance.
 
 Always pass along the `receiver` parameter using Reflect:
-
-JavaScript
 
 ```
 // 🟢 Production Standard Best Practice
@@ -3653,8 +3299,6 @@ Before 2015, JavaScript handled all asynchronous execution paths using callbacks
 #### A. Callback Hell (The Pyramid of Doom)
 
 When asynchronous operations depend on the results of previous ones, code nests deeply inside functions. This forces code to grow horizontally rather than vertically, making it brittle and unreadable.
-
-JavaScript
 
 ```
 getUser(id, function(user) {
@@ -3694,8 +3338,6 @@ A promise state can only change once—moving permanently from Pending to either
     
 -   **Rejected ❌** – Operation failed; `reject(error)` was triggered.
     
-
-JavaScript
 
 ```
 const executor = new Promise((resolve, reject) => {
@@ -3769,8 +3411,6 @@ The JavaScript engine by itself is completely single-threaded and synchronous. I
 
 ### How They Work Together (Execution Priority Example)
 
-JavaScript
-
 ```
 console.log("1. Sync");
 
@@ -3820,8 +3460,6 @@ While both mechanisms use the native Microtask Queue to handle asynchronous resu
 
 The `.then()` approach is completely non-blocking to the rest of the surrounding function. When the engine hits a line with `.then()`, it splits the execution path.
 
-JavaScript
-
 ```
 function processThen() {
   console.log("1. Sync Start");
@@ -3853,8 +3491,6 @@ function processThen() {
     
 
 ## 2. What happens when the engine encounters `async/await`
-
-JavaScript
 
 ```
 async function processAwait() {
@@ -3914,8 +3550,6 @@ Step 6: Loop back to Step 1 and grab the NEXT single Macrotask.
 
 If a microtask continuously schedules another microtask (e.g., a recursive promise chain), the engine will remain permanently trapped inside the Microtask Queue. The browser will never move to the Macrotask Queue, user I/O callbacks will hang, and the browser UI thread will freeze.
 
-JavaScript
-
 ```
 // 🛑 WARNING: Microtask Starvation Bug / Infinite Loop
 function starveEventLoop() {
@@ -3935,8 +3569,6 @@ function starveEventLoop() {
 
 This is a native control-flow block structure built directly into JavaScript. It watches a specific block of code and immediately diverts execution to the catch block if any synchronous error is thrown.
 
-JavaScript
-
 ```
 try {
   let user = JSON.parse(brokenJson); // Throws a synchronous SyntaxError
@@ -3948,8 +3580,6 @@ try {
 ```
 
 > Because `try...catch` is completely synchronous, it executes and finishes immediately on the current Call Stack frame. It cannot intercept something that happens in the future.
-
-JavaScript
 
 ```
 // ❌ Anti-Pattern: This try...catch is blind to the asynchronous exception
@@ -3967,8 +3597,6 @@ The `try` block executes, schedules the timer with the browser, and finishes run
 
 The exact same thing happens if you try to wrap a raw Promise in a synchronous `try...catch`:
 
-JavaScript
-
 ```
 // ❌ BROKEN: The try...catch cannot see the rejection inside the microtask queue
 try {
@@ -3982,8 +3610,6 @@ try {
 ## 2. `.catch()` (The Method Approach)
 
 This is an instance method belonging to the `Promise.prototype` object. It does not monitor a block of code; instead, it registers a callback function that listens down a Promise Chain for a rejected state signal.
-
-JavaScript
 
 ```
 fetch("https://api.example.com/data") // Returns a Promise
@@ -3999,8 +3625,6 @@ fetch("https://api.example.com/data") // Returns a Promise
 The `async/await` syntax acts as a structural bridge. Because the `await` keyword pauses the function context and steps off the Call Stack, it forces an asynchronous microtask rejection to behave like a local, synchronous runtime error.
 
 This allows you to use standard `try...catch` blocks for asynchronous code natively.
-
-JavaScript
 
 ```
 async function loadData() {
@@ -4025,8 +3649,6 @@ If an asynchronous Promise or async function throws an error/rejects, and you fo
 
 To prevent silent application crashes, implement a global native event listener:
 
-JavaScript
-
 ```
 // Global catch-all guardrail for browser environments:
 window.addEventListener("unhandledrejection", (event) => {
@@ -4039,8 +3661,6 @@ window.addEventListener("unhandledrejection", (event) => {
 ### Nuance B: The `await` Return Trap
 
 A common architectural bug happens when you try to catch an error from an async utility function but return the promise without using the `await` keyword inside the `try` block.
-
-JavaScript
 
 ```
 // ❌ BROKEN ARCHITECTURE
@@ -4055,8 +3675,6 @@ async function getResource() {
 ```
 
 Without `await`, the function immediately passes the pending promise object out of the function block. The function finishes execution successfully, exits the `try...catch`, and when the network request eventually rejects inside the microtask queue moments later, the local catch block is no longer listening.
-
-JavaScript
 
 ```
 // 🟢 CORRECT ARCHITECTURE
