@@ -5,11 +5,10 @@ permalink: /
 ---
 
 <style>
- #main-header{
-  display: none !important;
- };
+  #main-header {
+    display: none !important;
+  }
 </style>
-# 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide
 
 ![JavaScript Master Interview Manual Banner](assets/banner.png)
 
