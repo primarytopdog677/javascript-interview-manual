@@ -9,8 +9,8 @@ repository: Priyammondal/javascript-interview-manual
 url: "https://priyammondal.github.io"
 baseurl: "/javascript-interview-manual"
 
-# 🎛️ Navigation & Theme Settings
-nav_enabled: true
+# 🎛️ Navigation & Layout Overrides (Hides Left Sidebar Globally)
+nav_enabled: false
 heading_anchors: true
 
 # 👨‍💻 Author Profile Meta Configuration

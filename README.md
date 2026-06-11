@@ -1,7 +1,6 @@
 ---
-layout: default
-title: Home
-nav_order: 1
+layout: minimal
+title: "JavaScript Master Interview Manual"
 permalink: /
 ---
 # 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide
