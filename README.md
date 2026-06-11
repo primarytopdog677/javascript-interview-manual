@@ -1,4 +1,8 @@
-
+---
+layout: page
+title: "JavaScript Master Interview Manual"
+permalink: /
+---
 # 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide
 
 ![JavaScript Master Interview Manual Banner](assets/banner.png)
