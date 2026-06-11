@@ -8,9 +8,6 @@ permalink: /
  #main-header{
   display: none !important;
  };
-.main-content-wrap{
-  padding-top: 0 !important;
-}
 </style>
 # 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide
 
@@ -65,55 +62,33 @@ permalink: /
 
 # History, Engines, and Runtimes of JavaScript
 
-## 1. The Evolutionary Timeline
+### ⏳ The Evolutionary Timeline
+* **1995** – JavaScript was invented by **Brendan Eich** while working at Netscape. It was initially named **Mocha**, briefly changed to **LiveScript**, and finally settled on **JavaScript**.
+* **1997** – Developed originally for Netscape 2, it was submitted to the ECMA committee to standardize the language so it wouldn’t be locked down by a single company. This created the **ECMA-262 standard (ES1)**.
+* **The Rebirth** – Internet Explorer (IE4) was the first browser to support ES1. When Netscape eventually collapsed, its engineers founded the **Mozilla Project**, inheriting the original codebase to continue evolving JavaScript through Firefox.
 
-* **1995: The Genesis** – JavaScript was famously invented in just 10 days in May 1995 by **Brendan Eich** while working at Netscape. Originally codenamed **Mocha**, then briefly renamed to **LiveScript**, it finally settled on **JavaScript** as a marketing strategy to piggyback on the massive industry popularity of Java at the time. Structurally, it shared almost nothing with Java beyond basic C-style syntax rules.
-* **1997: Standardization** – Developed originally for **Netscape Navigator 2**, JavaScript was submitted to ECMA International to carve out an open, standardized specification, preventing a corporate monopoly. This standardization gave birth to **ECMAScript (ES)** via the formal **ECMA-262 standard (ES1)**. Internet Explorer (IE4) was the first major browser to adopt this official standard.
-  * **ECMAScript:** The foundational architectural blueprint and specification document detailing how the language *must* behave structurally.
-  * **JavaScript:** The concrete, production-grade programming implementation of that specification.
-* **Collapse & Rebirth** – Following the market collapse of Netscape during the first browser wars, its core engineers founded the **Mozilla Project**. They inherited the original codebase and continued evolving JavaScript through the open-source **Firefox** browser.
+### 📅 Major ECMAScript Edition Milestones
+* **1997** – ES1 *(The initial standardized baseline)*
+* **2009** – ES5 *(Introduced strict mode and native JSON parsing)*
+* **2015** – ES6 *(The largest overhaul: classes, arrow functions, promises, let/const)*
+* **2023** – ES14 *(Introduced modern change-by-copy array methods)*
+* **2025** – ES16 *(The latest iteration optimizing synchronization and pipelines)*
 
-### Major ECMAScript Edition Milestones
-The specification evolved through major generational shifts to handle modern application scales:
-* **1997 (ES1):** The initial standardized baseline.
-* **2009 (ES5):** Introduced strict mode (`"use strict"`), JSON parsing, and advanced Array methods (`map`, `filter`, `reduce`).
-* **2015 (ES6 / ES2015):** The largest architectural overhaul in the language's history. Introduced classes, arrow functions, `let`/`const`, promises, modules, and native iterators.
-* **2023 (ES14):** Appended features like change-by-copy array methods and Hashbang grammar support.
-* **2025 (ES16):** Modernized data collection pipelines and advanced synchronization paradigms.
-
-> For a deep chronological breakdown, see the official [Wikipedia ECMAScript Version History](https://en.wikipedia.org/wiki/ECMAScript_version_history).
+> 🔗 For a deep chronological breakdown, see the full [Wikipedia ECMAScript Version History](https://en.wikipedia.org/wiki/ECMAScript_version_history).
 
 ---
 
-## 2. Core JavaScript Engines
+### 🚀 Core JavaScript Engines
+Initially, JavaScript was built strictly to run inside web browsers. Different browsers use their own dedicated scripting engines to interpret and execute the code:
 
-A **JavaScript Engine** is a highly specialized program or virtual machine that ingests raw, human-readable JavaScript source code, parses it, and compiles it down to low-level, machine-executable native code that a computer's CPU can process directly. 
-
-Every major modern web browser hosts its own proprietary, fine-tuned engineering engine variant:
-
-| Engine                     | Primary Host Environment                            | Maintaining Organization |
-| :------------------------- | :-------------------------------------------------- | :----------------------- |
-| **V8**                     | Google Chrome, Microsoft Edge, Opera, Node.js, Deno | Google (Open-Source)     |
-| **SpiderMonkey**           | Mozilla Firefox                                     | Mozilla Foundation       |
-| **JavaScriptCore** (Nitro) | Apple Safari, Bun                                   | Apple Inc.               |
+* **V8** ──> Google Chrome, Microsoft Edge, Opera
+* **SpiderMonkey** ──> Mozilla Firefox
+* **JavaScriptCore** ──> Apple Safari
 
 ---
 
-## 3. Breaking Out of the Browser: Engine vs. Runtime
-
-A critical senior-level interview point is drawing an architectural boundary line between an **Engine** and a **Runtime Environment**. They are entirely distinct layers of infrastructure:
-
-### The Engine Layer
-Handles pure execution mechanics. It controls the **Memory Heap** (for variable allocation), sets up **Execution Contexts** on the **Call Stack**, and runs the **Garbage Collector**. It is context-blind; it knows absolutely nothing about the internet, networking ports, file reading APIs, or visual screen pixels.
-
-### The Runtime Environment Layer
-In **2009**, developer **Ryan Dahl** broke JavaScript out of its browser sandbox by creating **Node.js**. He extracted Google Chrome's high-performance open-source **V8 engine** and wrapped it in a native C++ platform layer, making it possible to execute JavaScript outside the browser environment entirely (servers, local scripts, backend infrastructure).
-
-A runtime environment wraps around an engine to provide a concrete execution shell:
-* **In the Browser:** The runtime provides the engine along with **Web APIs** (like `fetch()`, `setTimeout()`, and the DOM layout tree).
-* **In Node.js:** The runtime provides the engine along with native server-side capabilities (like the file system `fs` module, network socket handling via `http`, and cryptographic utilities).
-
-Both environments use their respective platforms to map the **Macrotask Callback Queue** and supply the external **Event Loop** coordination system, allowing a single-threaded engine to execute complex, non-blocking, asynchronous execution pipelines.
+### 🛠️ Breaking Out of the Browser
+In **2009**, developer **Ryan Dahl** took Google Chrome's high-performance open-source **V8 engine** and wrapped it in a native C++ platform layer. This created **Node.js**, a runtime environment that made it possible to run JavaScript outside the browser entirely (on servers and local machines).
 
 # Integrating JavaScript into HTML
 
@@ -510,14 +485,14 @@ So, if there’s a `NaN` somewhere in a mathematical expression, it propagates t
 
 ### BigInt
 
-In JavaScript, the "number" type cannot safely represent integer values larger than $(2^{53} - 1)$ (that’s `9007199254740991`), or less than $-(2^{53} - 1)$ for negatives.
+In JavaScript, the `number` type cannot safely represent integer values larger than (2<sup>53</sup> - 1) (that’s `9007199254740991`), or less than -(2<sup>53</sup> - 1) for negatives.
 
-For most purposes $\pm(2^{53} - 1)$ range is quite enough, but sometimes we need the entire range of really big integers, e.g., for cryptography or microsecond-precision timestamps. The `BigInt` type was added to the language to represent integers of arbitrary length.
+For most purposes, the ±(2<sup>53</sup> - 1) range is quite enough. However, sometimes you need the entire range of massive integers—such as for cryptography or microsecond-precision timestamps. The `BigInt` type was added to the language to represent integers of arbitrary length.
 
-A `BigInt` value is created by appending `n` to the end of an integer:
+A `BigInt` value is created by appending an `n` to the end of an integer:
 
 ```
-// the "n" at the end means it's a BigInt
+// The "n" at the end tells the engine it's a BigInt
 const bigInt = 1234567890123456789012345678901234567890n;
 
 ```
