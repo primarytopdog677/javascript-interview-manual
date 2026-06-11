@@ -3,6 +3,14 @@
 
 ![JavaScript Master Interview Manual Banner](assets/banner.png)
 
+<p align="center">
+  <img src="https://img.shields.io/github/stars/Priyammondal/javascript-interview-manual?style=for-the-badge&color=yellow" alt="GitHub Stars">
+  <img src="https://img.shields.io/github/forks/Priyammondal/javascript-interview-manual?style=for-the-badge&color=orange" alt="GitHub Forks">
+  <img src="https://img.shields.io/github/last-commit/Priyammondal/javascript-interview-manual?style=for-the-badge&color=green" alt="Last Commit">
+  <img src="https://img.shields.io/badge/PRs-welcome-blueviolet?style=for-the-badge" alt="PRs Welcome">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License">
+</p>
+
 ## Table of Contents
 * [History, Engines, and Runtimes of JavaScript](#history-engines-and-runtimes-of-javascript)
 * [Integrating JavaScript into HTML](#integrating-javascript-into-html)
@@ -4121,3 +4129,15 @@ Both block variants accept a clean-up frame that is guaranteed to run whether th
 If a `return` statement is encountered inside a `try` or a `catch` block, the JavaScript engine does not exit the function immediately. Instead, **it pauses the return operation, executes everything inside the `finally { ... }` block first, and only then completes the return.**
 
 > Never write a `return` statement inside a `finally {}` block. If the `finally` block returns a value, it will completely overwrite and discard any return values that were previously prepared by the `try` or `catch` blocks.
+
+
+# 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide
+
+![JavaScript Master Interview Manual Banner](assets/banner.png)
+
+<p align="center">
+  <img src="https://img.shields.io/github/stars/Priyammondal/javascript-interview-manual?style=for-the-badge&color=yellow" alt="GitHub Stars">
+  <img src="https://img.shields.io/github/forks/Priyammondal/javascript-interview-manual?style=for-the-badge&color=orange" alt="GitHub Forks">
+  <img src="https://img.shields.io/github/last-commit/Priyammondal/javascript-interview-manual?style=for-the-badge&color=green" alt="Last Commit">
+  <img src="https://img.shields.io/badge/PRs-welcome-blueviolet?style=for-the-badge" alt="PRs Welcome">
+</p>
