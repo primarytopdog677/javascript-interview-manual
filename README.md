@@ -4,66 +4,36 @@
 ![JavaScript Master Interview Manual Banner](assets/banner.png)
 
 ## Table of Contents
-
--   [History, Engines, and Runtimes of JavaScript](https://www.google.com/search?q=%23history-engines-and-runtimes-of-javascript)
-    
--   [Integrating JavaScript into HTML](https://www.google.com/search?q=%23integrating-javascript-into-html)
-    
--   [Variables and Scopes in JavaScript](https://www.google.com/search?q=%23variables-and-scopes-in-javascript)
-    
--   [Lexical Scope vs. Closure](https://www.google.com/search?q=%23lexical-scope-vs-closure)
-    
--   [The Two Phases of Code Execution](https://www.google.com/search?q=%23the-two-phases-of-code-execution)
-    
--   [Hoisting and the Temporal Dead Zone (TDZ)](https://www.google.com/search?q=%23hoisting-and-the-temporal-dead-zone-tdz)
-    
--   [JavaScript Execution Pipeline](https://www.google.com/search?q=%23javascript-execution-pipeline)
-    
--   [var vs. let vs. const](https://www.google.com/search?q=%23var-vs-let-vs-const)
-    
--   [Data Types in JavaScript](https://www.google.com/search?q=%23data-types-in-javascript)
-    
--   [Advanced Collections: Map and Set](https://www.google.com/search?q=%23advanced-collections-map-and-set)
-    
--   [Memory Management: WeakMap and WeakSet](https://www.google.com/search?q=%23memory-management-weakmap-and-weakset)
-    
--   [The typeof Operator Quirks](https://www.google.com/search?q=%23the-typeof-operator-quirks)
-    
--   [Type Conversions](https://www.google.com/search?q=%23type-conversions)
-    
--   [Basic Operators](https://www.google.com/search?q=%23basic-operators)
-    
--   [Conditional Operators](https://www.google.com/search?q=%23conditional-operators)
-    
--   [Logical Operators](https://www.google.com/search?q=%23logical-operators)
-    
--   [Statements vs. Expressions](https://www.google.com/search?q=%23statements-vs-expressions)
-    
--   [The switch Statement](https://www.google.com/search?q=%23the-switch-statement)
-    
--   [Loops](https://www.google.com/search?q=%23loops)
-    
--   [Functions](https://www.google.com/search?q=%23functions)
-    
--   [Modern Class Architecture](https://www.google.com/search?q=%23modern-class-architecture)
-    
--   [Objects](https://www.google.com/search?q=%23objects)
-    
--   [The "this" Keyword in Objects](https://www.google.com/search?q=%23the-this-keyword-in-objects)
-    
--   [Property Descriptors and Object Mutability](https://www.google.com/search?q=%23property-descriptors-and-object-mutability)
-    
--   [Prototype and Prototypal Inheritance](https://www.google.com/search?q=%23prototype-and-prototypal-inheritance)
-    
--   [Symbol Type](https://www.google.com/search?q=%23symbol-type)
-    
--   [Metaprogramming: Proxy and Reflect](https://www.google.com/search?q=%23metaprogramming-proxy-and-reflect)
-    
--   [Asynchronous JavaScript and the Event Loop](https://www.google.com/search?q=%23asynchronous-javascript-and-the-event-loop)
-    
--   [Asynchronous Patterns: .then() vs. async/await](https://www.google.com/search?q=%23asynchronous-patterns-then-vs-asyncawait)
-    
--   [Advanced JavaScript Error Handling](https://www.google.com/search?q=%23advanced-javascript-error-handling)
+* [History, Engines, and Runtimes of JavaScript](#history-engines-and-runtimes-of-javascript)
+* [Integrating JavaScript into HTML](#integrating-javascript-into-html)
+* [Variables and Scopes in JavaScript](#variables-and-scopes-in-javascript)
+* [Lexical Scope vs. Closure](#lexical-scope-vs-closure)
+* [The Two Phases of Code Execution](#the-two-phases-of-code-execution)
+* [Hoisting and the Temporal Dead Zone (TDZ)](#hoisting-and-the-temporal-dead-zone-tdz)
+* [JavaScript Execution Pipeline](#javascript-execution-pipeline)
+* [var vs. let vs. const](#var-vs-let-vs-const)
+* [Data Types in JavaScript](#data-types-in-javascript)
+* [Advanced Collections: Map and Set](#advanced-collections-map-and-set)
+* [Memory Management: WeakMap and WeakSet](#memory-management-weakmap-and-weakset)
+* [The typeof Operator Quirks](#the-typeof-operator-quirks)
+* [Type Conversions](#type-conversions)
+* [Basic Operators](#basic-operators)
+* [Conditional Operators](#conditional-operators)
+* [Logical Operators](#logical-operators)
+* [Statements vs. Expressions](#statements-vs-expressions)
+* [The switch Statement](#the-switch-statement)
+* [Loops](#loops)
+* [Functions](#functions)
+* [Modern Class Architecture](#modern-class-architecture)
+* [Objects](#objects)
+* [The "this" Keyword in Objects](#the-this-keyword-in-objects)
+* [Property Descriptors and Object Mutability](#property-descriptors-and-object-mutability)
+* [Prototype and Prototypal Inheritance](#prototype-and-prototypal-inheritance)
+* [Symbol Type](#symbol-type)
+* [Metaprogramming: Proxy and Reflect](#metaprogramming-proxy-and-reflect)
+* [Asynchronous JavaScript and the Event Loop](#asynchronous-javascript-and-the-event-loop)
+* [Asynchronous Patterns: .then() vs. async/await](#asynchronous-patterns-then-vs-asyncawait)
+* [Advanced JavaScript Error Handling](#advanced-javascript-error-handling)
     
 
 # History, Engines, and Runtimes of JavaScript
