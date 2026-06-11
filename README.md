@@ -10,7 +10,10 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/Priyammondal/javascript-interview-manual?style=for-the-badge&color=yellow" alt="GitHub Stars"> <img src="https://img.shields.io/github/forks/Priyammondal/javascript-interview-manual?style=for-the-badge&color=orange" alt="GitHub Forks"> <img src="https://img.shields.io/github/last-commit/Priyammondal/javascript-interview-manual?style=for-the-badge&color=green" alt="Last Commit"> <img src="https://img.shields.io/badge/PRs-welcome-blueviolet?style=for-the-badge" alt="PRs Welcome"> <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License">
+  <img src="https://img.shields.io/github/stars/Priyammondal/javascript-interview-manual?style=for-the-badge&color=yellow" alt="GitHub Stars">
+  <a href="https://github.com/Priyammondal/javascript-interview-manual/network/members"><img src="https://img.shields.io/badge/Forks-0-orange?style=for-the-badge" alt="GitHub Forks"></a>
+  <img src="https://img.shields.io/badge/PRs-welcome-blueviolet?style=for-the-badge" alt="PRs Welcome">
+  <img src="https://img.shields.io/badge/License-MIT-blue?style=for-the-badge" alt="MIT License">
 </p>
 
 ## Table of Contents
