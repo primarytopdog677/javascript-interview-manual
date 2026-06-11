@@ -9,9 +9,20 @@ repository: Priyammondal/javascript-interview-manual
 url: "https://priyammondal.github.io"
 baseurl: "/javascript-interview-manual"
 
-# 🎛️ Navigation & Layout Overrides (Hides Left Sidebar Globally)
+# 🎛️ Layout & Feature Disables (Keeps it clean and centered)
 nav_enabled: false
+search_enabled: false
 heading_anchors: true
+
+# 🛠️ Correct Syntax Highlighting Configuration
+# Note: Just the Docs natively handles Rouge. To disable line numbers cleanly, 
+# set this to false. "wrap" and "css_class" variables are managed automatically by the theme core.
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: false
 
 # 👨‍💻 Author Profile Meta Configuration
 author:
