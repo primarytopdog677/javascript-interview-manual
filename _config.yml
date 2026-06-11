@@ -2,21 +2,6 @@ title: ""
 description: "The ultimate production-grade crunch-time revision framework engineered for Senior SDE loops."
 show_downloads: false
 
-# 🎨 Premium Full-Screen Engineering Documentation Layout
-theme: jekyll-theme-merlot
-incremental: true          
-sass:
-  style: :compressed       
-
-# 🎛️ Code Syntax Highlighting Engine
-markdown: kramdown
-kramdown:
-  input: GFM               # Ensures tables, checklists, and alert boxes render seamlessly
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true   # Keeps line numbers active for easy code reference
-
 # 🌐 Core Repository and Domain Overrides
 repository: Priyammondal/javascript-interview-manual
 url: "https://priyammondal.github.io"
