@@ -4131,13 +4131,23 @@ If a `return` statement is encountered inside a `try` or a `catch` block, the Ja
 > Never write a `return` statement inside a `finally {}` block. If the `finally` block returns a value, it will completely overwrite and discard any return values that were previously prepared by the `try` or `catch` blocks.
 
 
-# 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide
+---
 
-![JavaScript Master Interview Manual Banner](assets/banner.png)
+## 🤝 Contributing & Feedback
+
+This manual is completely open-source and community-driven. JavaScript is a massive ecosystem with continuous engine updates—if you spot a technical anomaly, an outdated concept, a syntax typo, or want to add a tricky interview problem you recently faced, contributions are highly encouraged!
+
+### How to Contribute:
+1. **Fork** the repository.
+2. Create a feature branch (`git checkout -b feature/AmazingContribution`).
+3. Commit your updates (`git commit -m 'docs: update Event Loop edge-cases'`).
+4. Push to the branch (`git push origin feature/AmazingContribution`).
+5. Open a **Pull Request** (PR).
+
+*Alternatively, if you find an issue but don't have time to fix it yourself, feel free to open a detailed **[GitHub Issue](https://github.com/Priyammondal/javascript-interview-manual/issues)**.*
+
+---
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/Priyammondal/javascript-interview-manual?style=for-the-badge&color=yellow" alt="GitHub Stars">
-  <img src="https://img.shields.io/github/forks/Priyammondal/javascript-interview-manual?style=for-the-badge&color=orange" alt="GitHub Forks">
-  <img src="https://img.shields.io/github/last-commit/Priyammondal/javascript-interview-manual?style=for-the-badge&color=green" alt="Last Commit">
-  <img src="https://img.shields.io/badge/PRs-welcome-blueviolet?style=for-the-badge" alt="PRs Welcome">
+  If this manual helped you ace an interview or learn something new, consider giving it a 🌟 <b>Star</b> to support the project!
 </p>
