@@ -1,6 +1,7 @@
 ---
-layout: page
-title: ""
+layout: default
+title: Home
+nav_order: 1
 permalink: /
 ---
 # 📚 JavaScript Master Interview Manual: The Ultimate Crunch-Time Revision Guide

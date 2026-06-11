@@ -1,24 +1,17 @@
 title: ""
 description: "The ultimate production-grade crunch-time revision framework engineered for Senior SDE loops."
-show_downloads: false
 
-# 🎨 Premium Remote Layout: yous/whiteglass
-remote_theme: yous/whiteglass
-permalink: /:title/
-
-# 🎛️ Code Syntax Highlighting Engine
-markdown: kramdown
-kramdown:
-  input: GFM               # Keeps your dynamic shields badges and tables parsing flawlessly
-  syntax_highlighter: rouge
-  syntax_highlighter_opts:
-    block:
-      line_numbers: true   # Renders clean line numbers for your JS blocks
+# 🎨 Premium Remote Layout: just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 # 🌐 Core Repository and Domain Overrides
 repository: Priyammondal/javascript-interview-manual
 url: "https://priyammondal.github.io"
 baseurl: "/javascript-interview-manual"
+
+# 🎛️ Navigation & Theme Settings
+nav_enabled: true
+heading_anchors: true
 
 # 👨‍💻 Author Profile Meta Configuration
 author:
