@@ -3,7 +3,7 @@ description: "The ultimate production-grade crunch-time revision framework engin
 show_downloads: false
 
 # 🎨 Premium Full-Screen Engineering Documentation Layout
-theme: jekyll-theme-architect
+theme: jekyll-theme-merlot
 incremental: true          
 sass:
   style: :compressed       
