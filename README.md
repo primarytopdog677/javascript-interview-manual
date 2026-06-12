@@ -858,11 +858,11 @@ value1 = Number(value1); // now it is converted to a number
 
 **Conversion Rules Matrix:**
 
--   `undefined` $\rightarrow$ `NaN`
+-   `undefined` ──► `NaN`
     
--   `null` $\rightarrow$ `0`
+-   `null` ──► `0`
     
--   `true` and `false` $\rightarrow$ `1` and `0`
+-   `true` and `false` ──► `1` and `0`
     
 -   **Empty String `""`:** Strips out white spaces (`\n`, `\t`) and reads an empty space as `0`.
     
@@ -3083,7 +3083,7 @@ The `receiver` argument acts as a precise context tracking link, ensuring that t
 
 # Asynchronous JavaScript and the Event Loop
 
-Asynchronous engineering in JavaScript evolved across three major eras: **Callbacks** $\rightarrow$ **Promises (`.then()`)** $\rightarrow$ **async/await**.
+Asynchronous engineering in JavaScript evolved across three major eras: **Callbacks** ──► **Promises (`.then()`)** ──► **async/await**.
 
 ## The Pre-ES6 Era: Pure Callbacks
 
