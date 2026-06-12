@@ -97,7 +97,6 @@ Code is written directly inside the HTML file, encapsulated within `<script></sc
 <script>
   console.log("This is internal JavaScript executing inside the HTML file.");
 </script>
-
 ```
 
 ### 2. External JavaScript
@@ -106,7 +105,6 @@ Code is completely decoupled into a standalone `.js` file. It is linked back to 
 
 ```
 <script src="path/to/script.js"></script>
-
 ```
 
 ## Performance Optimization: Script Loading Attributes
@@ -196,7 +194,6 @@ The Thread of Execution runs the code sequentially line-by-line, updating the va
 
 ```
 var a = 10;
-
 ```
 
 -   **Engine Action:** Updates the stored memory value of `a` from `undefined` to `10`.
@@ -206,7 +203,6 @@ var a = 10;
 
 ```
 function add(x, y) { return x + y; }
-
 ```
 
 -   **Engine Action:** Completely ignored during this phase because its structural definition was already handled during the memory creation phase.
@@ -227,7 +223,6 @@ That's why the below code won't give an error, but `undefined` will be printed o
 ```
 console.log(age); // undefined
 var age = 24;
-
 ```
 
 ## Temporal Dead Zone (TDZ)
@@ -255,7 +250,6 @@ TDZ is different for `var` in comparison to `const` and `let`.
   // ⚪ bestFood’s TDZ does not exist here anymore
   console.log(bestFood); // "Vegetable Fried Rice"
 }
-
 ```
 
 ### Example 2
@@ -271,7 +265,6 @@ TDZ is different for `var` in comparison to `const` and `let`.
   bestFood = "Vegetable Fried Rice"; 
   console.log(bestFood); // 🟢 Prints: "Vegetable Fried Rice"
 }
-
 ```
 
 A `let` variable's TDZ ends the moment its declaration line is evaluated, even if you don't explicitly assign it a value right away. JavaScript will automatically initialize it to `undefined` at that exact milestone.
@@ -289,7 +282,6 @@ Because `var` is hoisted and initialized with `undefined` at the exact same mome
   
   console.log(bestFood); // 🟢 Prints: "Vegetable Fried Rice"
 }
-
 ```
 
 When the computer hoists a `var` variable, it automatically initializes the variable with the value `undefined`. In contrast, JavaScript does not initialize a `let` (or `const`) variable with any value whenever it hoists the variable. Instead, the variable remains dead and inaccessible.
@@ -446,7 +438,6 @@ It could be an integer value or it could be a floating value.
 ```
 let n = 45;
 let x = 34.67; 
-
 ```
 
 Besides regular numbers, there are so-called "special numeric values" which also belong to this data type: `Infinity`, `-Infinity`, and `NaN`.
@@ -455,14 +446,12 @@ Infinity represents the mathematical Infinity ∞. It is a special value that’
 
 ```
 alert( 1 / 0 ); // Infinity
-
 ```
 
 `NaN` represents a computational error. It is a result of an incorrect or an undefined mathematical operation:
 
 ```
 alert( "not a number" / 2 ); // NaN, such division is erroneous
-
 ```
 
 `NaN` is sticky. Any further mathematical operation on `NaN` returns `NaN`:
@@ -471,7 +460,6 @@ alert( "not a number" / 2 ); // NaN, such division is erroneous
 alert( NaN + 1 ); // NaN
 alert( 3 * NaN ); // NaN
 alert( "not a number" / 2 - 1 ); // NaN
-
 ```
 
 So, if there’s a `NaN` somewhere in a mathematical expression, it propagates to the whole result (there’s only one exception to that: `NaN 0` is `1`).
@@ -487,7 +475,6 @@ A `BigInt` value is created by appending an `n` to the end of an integer:
 ```
 // The "n" at the end tells the engine it's a BigInt
 const bigInt = 1234567890123456789012345678901234567890n;
-
 ```
 
 ### String
@@ -513,7 +500,6 @@ alert( `Hello, ${name}!` ); // Hello, John!
 
 // embed an expression
 alert( `the result is ${1 + 2}` ); // the result is 3
-
 ```
 
 ### Boolean
@@ -523,7 +509,6 @@ The boolean type has only two values: `true` and `false`.
 ```
 let nameFieldChecked = true; // yes, name field is checked
 let ageFieldChecked = false; // no, age field is not changed
-
 ```
 
 ### null
@@ -532,7 +517,6 @@ Intentional absence of data.
 
 ```
 let age = null;
-
 ```
 
 In JavaScript, `null` is not a “reference to a non-existing object” or a “null pointer” like in some other languages. It’s just a special value which represents “nothing”, “empty” or “value unknown”. The code above states that age is unknown.
@@ -544,7 +528,6 @@ The meaning of `undefined` is “value is not assigned”. If a variable is decl
 ```
 let age;
 alert(age); // shows "undefined"
-
 ```
 
 Technically, it is possible to explicitly assign `undefined` to a variable:
@@ -552,7 +535,6 @@ Technically, it is possible to explicitly assign `undefined` to a variable:
 ```
 age = undefined;
 alert(age); // "undefined"
-
 ```
 
 But it is not recommended. Normally, one uses `null` to assign an “empty” or “unknown” value to a variable, while `undefined` is reserved as a default initial value for unassigned things.
@@ -563,7 +545,6 @@ Introduced in ES6 to create completely unique, immutable identifiers. Even if yo
 
 ```
 let id = Symbol("id");
-
 ```
 
 ## 2. Reference Types (Passed by Reference)
@@ -582,7 +563,6 @@ let userInfo = {
         console.log("Ramesh is a Software Developer");
     }
 };
-
 ```
 
 **Crucial Sub-types:** Arrays (ordered lists) and Functions (callable objects). Dates are technically classified as structural objects under the hood.
@@ -616,7 +596,6 @@ let recipeMap = new Map([
   ['tomatoes', 350],
   ['onion',     50]
 ]);
-
 ```
 
 ### Looping Over a Map
@@ -638,7 +617,6 @@ Chaining is also possible as `map.set` call returns the map itself:
 map.set('1', 'str1')
   .set(1, 'num1')
   .set(true, 'bool1');
-
 ```
 
 ### Converting Objects and Maps Flawlessly
@@ -653,7 +631,6 @@ let obj = {
 
 let map = new Map(Object.entries(obj));
 alert( map.get('name') ); // John
-
 ```
 
 **Object from Map**
@@ -667,7 +644,6 @@ let prices = Object.fromEntries([
 
 // now prices = { banana: 1, orange: 2, meat: 4 }
 alert(prices.orange); // 2
-
 ```
 
 **Flawless Conversion Snippet Summary**
@@ -679,7 +655,6 @@ let mapFromObj = new Map(Object.entries(obj));
 
 // B. Map ──► Plain Object
 let mapToObj = Object.fromEntries(mapFromObj);
-
 ```
 
 ## Set
@@ -729,7 +704,6 @@ john = null; // overwrite the reference
 // the object previously referenced by john is stored inside the array
 // therefore it won't be garbage-collected
 // we can get it as array[0]
-
 ```
 
 Similar to that, if we use an object as the key in a regular Map, then while the Map exists, that object exists as well. It occupies memory and may not be garbage collected.
@@ -743,7 +717,6 @@ john = null; // overwrite the reference
 
 // john is stored inside the map,
 // we can get it by using map.keys()
-
 ```
 
 ## WeakMap
@@ -764,7 +737,6 @@ weakMap.set(john, "...");
 john = null; // overwrite the reference
 
 // john is removed from memory!
-
 ```
 
 ### Allowed vs. Forbidden Keys (Post-ES2023)
@@ -781,7 +753,6 @@ weakMap.set(symKey, "more data");
 // ❌ Forbidden Keys: Registered Symbols & Traditional Primitives
 weakMap.set(Symbol.for("global"), "error"); // TypeError (Registered symbols don't clean up)
 weakMap.set("stringKey", "error");          // TypeError
-
 ```
 
 ### API Limitations
@@ -830,9 +801,7 @@ typeof "foo" // "string"
 typeof Symbol("id") // "symbol"
 typeof Math // "object"
 typeof alert // "function"
-
 typeof null // "object"
-
 ```
 
 ### Why does `typeof null` return `"object"`?
@@ -853,7 +822,6 @@ If any operand is a string, JavaScript converts the other to a string and concat
 ```
 "5" + 2    // "52" (Number 2 becomes string "2")
 true + "b" // "trueb"
-
 ```
 
 ### Other Mathematical Operators (`-`, `*`, `/`, `%`)
@@ -864,7 +832,6 @@ These operators always force values into Numbers.
 "6" - "2"  // 4
 "5" * true // 5 (true becomes 1)
 "4" / null // Infinity (null becomes 0)
-
 ```
 
 ## 2. Explicit Conversions
@@ -878,7 +845,6 @@ Pretty straightforward. Using `String(value)` or calling `value.toString()` wrap
 ```
 String(null)      // "null"
 String(undefined) // "undefined"
-
 ```
 
 ### Numeric Conversion
@@ -888,7 +854,6 @@ Occurs when using `Number(value)` or applying the unary plus operator (`+value`)
 ```
 let value1 = "6";      // string
 value1 = Number(value1); // now it is converted to a number
-
 ```
 
 **Conversion Rules Matrix:**
@@ -933,7 +898,6 @@ let x = 1, y = 3;
 alert( y - x ); // 2, binary minus subtracts values
 alert( 4 ** (1/2) ); // 2 (power of 1/2 is the same as a square root)
 alert( 8 % 3 ); // 2, the remainder of 8 divided by 3
-
 ```
 
 ### String Concatenation with Binary `+`
@@ -941,7 +905,6 @@ alert( 8 % 3 ); // 2, the remainder of 8 divided by 3
 ```
 let s = "my" + "string";
 alert(s); // mystring
-
 ```
 
 If any of the operands is a string, then the other one is converted to a string too if the operand is `+`:
@@ -951,7 +914,6 @@ alert( '1' + 2 ); // "12"
 alert( 2 + '1' ); // "21"
 alert( 2 + 2 + '1' ); // "41" and not "221"
 alert( '1' + 2 + 2 ); // "122" and not "14"
-
 ```
 
 The binary `+` is the only operator that supports strings in such a way. Other arithmetic operators work only with numbers and always convert their operands to numbers.
@@ -959,7 +921,6 @@ The binary `+` is the only operator that supports strings in such a way. Other a
 ```
 alert( 6 - '2' ); // 4, converts '2' to a number
 alert( '6' / '2' ); // 3, converts both operands to numbers
-
 ```
 
 ## Unary Operators (`+`, `-`)
@@ -970,7 +931,6 @@ An operator is unary if it has a single operand. For example, the unary negation
 let x = 1;
 x = -x;
 alert( x ); // -1, unary negation was applied
-
 ```
 
 ### Numeric Conversion with Unary `+`
@@ -992,7 +952,6 @@ alert( +"" );   // 0
 let apples = "2";
 let oranges = "3";
 alert( apples + oranges ); // "23", the binary plus concatenates strings
-
 ```
 
 ## Assignment Operators
@@ -1006,7 +965,6 @@ let c = 3 - (a = b + 1);
 
 alert( a ); // 3
 alert( c ); // 0
-
 ```
 
 ### Chaining Assignments
@@ -1018,7 +976,6 @@ a = b = c = 2 + 2;
 alert( a ); // 4
 alert( b ); // 4
 alert( c ); // 4
-
 ```
 
 Chained assignments evaluate from right to left. First, the rightmost expression `2 + 2` is evaluated and then assigned to the variables on the left: `c`, `b`, and `a`. At the end, all the variables share a single value.
@@ -1028,14 +985,12 @@ let n = 2;
 n += 5; // now n = 7 (same as n = n + 5)
 n *= 2; // now n = 14 (same as n = n * 2)
 alert( n ); // 14
-
 ```
 
 ```
 let n = 2;
 n *= 3 + 5; // right part evaluated first, same as n *= 8
 alert( n ); // 16
-
 ```
 
 ## Increment/Decrement Operators
@@ -1062,14 +1017,12 @@ Both increase the value by one, but the prefix form returns the new value while 
 let counter = 1;
 let a = ++counter; // prefix form increments counter and returns the new value, 2.
 alert(a); // 2
-
 ```
 
 ```
 let counter = 1;
 let a = counter++; // postfix form increments counter but returns the old value, 1.
 alert(a); // 1
-
 ```
 
 If the result of the increment/decrement is not used, there is no difference in which form to use:
@@ -1079,7 +1032,6 @@ let counter = 0;
 counter++;
 ++counter;
 alert( counter ); // 2
-
 ```
 
 ### Increment/Decrement Among Other Operators
@@ -1087,13 +1039,11 @@ alert( counter ); // 2
 ```
 let counter = 1;
 alert( 2 * ++counter ); // 4
-
 ```
 
 ```
 let counter = 1;
 alert( 2 * counter++ ); // 2, because counter++ returns the "old" value
-
 ```
 
 ## Bitwise Operators
@@ -1102,33 +1052,33 @@ Bitwise operators treat arguments as 32-bit integer numbers and work on the leve
 
 -   **AND ( `&` )**
     
-    `5 & 1` $\rightarrow$ `0101 & 0001` $\rightarrow$ `0001` $\rightarrow$ `1`
+    `5 & 1`  `>>` `0101 & 0001`  `>>` `0001`  `>>` `1`
     
 -   **OR ( `\|` )**
     
-    `5 | 1` $\rightarrow$ `0101 | 0001` $\rightarrow$ `0101` $\rightarrow$ `5`
+    `5 | 1`  `>>` `0101 | 0001`  `>>` `0101`  `>>` `5`
     
 -   **XOR ( `^` )**
     
-    `5 ^ 1` $\rightarrow$ `0101 ^ 0001` $\rightarrow$ `0100` $\rightarrow$ `4`
+    `5 ^ 1`  `>>` `0101 ^ 0001`  `>>` `0100`  `>>` `4`
     
 -   **NOT ( `~` )**
     
     Inverts all bits (including the sign bit). Formula: `~x = -(x + 1)`
     
-    `~5` $\rightarrow$ `-6`
+    `~5`  `→` `-6`
     
 -   **LEFT SHIFT ( `<<` )**
     
     This is a zero-fill left shift. One or more zero bits are pushed in from the right, and the leftmost bits fall off.
     
-    `5 << 1` $\rightarrow$ `0101 << 1` $\rightarrow$ `1010` $\rightarrow$ `10`
+    `5 << 1`  `→` `0101 << 1`  `→` `1010`  `→` `10`
     
 -   **Sign-Preserving Right Shift ( `>>` )**
     
     This operator keeps the sign of the number intact by duplicating the sign bit (the leftmost bit) as it shifts bits to the right.
     
-    `5 >> 1` $\rightarrow$ `0101 >> 1` $\rightarrow$ `0010` $\rightarrow$ `2`
+    `5 >> 1`  `→` `0101 >> 1`  `→` `0010`  `→` `2`
     
     If the number is negative, the leftmost bit is 1, so it pushes 1s from the left. `-5 >> 1` evaluates to `-3`.
     
@@ -1136,9 +1086,9 @@ Bitwise operators treat arguments as 32-bit integer numbers and work on the leve
     
     This is a zero-fill right shift. One or more zero bits are pushed in from the left, and the rightmost bits fall off.
     
-    `5 >>> 1` $\rightarrow$ `0101 >>> 1` $\rightarrow$ `0010` $\rightarrow$ `2` (Same as `>>` for positive numbers)
+    `5 >>> 1` `→` `0101 >>> 1` `→` `0010` `→` `2` (Same as `>>` for positive numbers)
     
-    `-5 >>> 1` $\rightarrow$ `2147483645` ⚠️ _(Sign bit becomes 0, rendering it positive)_
+    `-5 >>> 1` `→` `2147483645` ⚠️ _(Sign bit becomes 0, rendering it positive)_
     
 
 ## Comma Operator
@@ -1148,7 +1098,6 @@ The comma operator allows us to evaluate several expressions, dividing them with
 ```
 let a = (1 + 2, 3 + 4);
 alert( a ); // 7 (the result of 3 + 4)
-
 ```
 
 ## Comparison Operators
@@ -1159,7 +1108,6 @@ All comparison operators return a boolean value: `true` or `false`.
 alert( 2 > 1 );  // true
 alert( 2 == 1 ); // false
 alert( 2 != 1 ); // true
-
 ```
 
 ### String Comparison
@@ -1170,7 +1118,6 @@ Strings are compared letter-by-letter in lexicographical order:
 alert( 'Z' > 'A' ); // true
 alert( 'Glow' > 'Glee' ); // true
 alert( 'Bee' > 'Be' ); // true
-
 ```
 
 ### Comparison of Different Types
@@ -1182,7 +1129,6 @@ alert( '2' > 1 ); // true, string '2' becomes a number 2
 alert( '01' == 1 ); // true, string '01' becomes a number 1
 alert( true == 1 ); // true
 alert( false == 0 ); // true
-
 ```
 
 ```
@@ -1193,7 +1139,6 @@ let b = "0";
 alert( Boolean(b) ); // true
 
 alert(a == b); // true!
-
 ```
 
 From JavaScript’s standpoint, this result is normal. An equality check converts values using numeric conversion (hence `"0"` becomes `0`), while the explicit Boolean conversion uses another set of rules.
@@ -1207,7 +1152,6 @@ A strict equality operator `===` checks the equality without type conversion. If
 ```
 alert( null === undefined ); // false
 alert( null == undefined ); // true
-
 ```
 
 ```
@@ -1218,7 +1162,6 @@ console.log(-0 === +0);     // true  (Inaccurate bit representation)
 // Object.is() evaluates pure, flawless identity matching:
 console.log(Object.is(NaN, NaN)); // true
 console.log(Object.is(-0, +0));   // false
-
 ```
 
 > For details on operator hierarchy, see the official [W3Schools JavaScript Operator Precedence Reference](https://www.w3schools.com/js/js_precedence.asp).
@@ -1235,7 +1178,6 @@ if (year == 2015) {
 } else {
   alert( 'How can you be so wrong?' ); // any value except 2015
 } 
-
 ```
 
 The `else if` clause lets us test several variants of a condition:
@@ -1250,7 +1192,6 @@ if (year < 2015) {
 } else {
   alert( 'Exactly!' );
 }
-
 ```
 
 ## Conditional / Ternary Operator `?`
@@ -1267,19 +1208,16 @@ if (age > 18) {
   accessAllowed = false;
 }
 alert(accessAllowed);
-
 ```
 
 The conditional, question mark, or "Ternary" operator lets us do that in a shorter and simpler way. It is represented by a question mark `?`.
 
 ```
 let result = condition ? value1 : value2;
-
 ```
 
 ```
 let accessAllowed = age > 18 ? true : false;
-
 ```
 
 ### Multiple `?`
@@ -1293,7 +1231,6 @@ let message = (age < 3)   ? 'Hi, baby!' :
                             'What an unusual age!';
 
 alert( message );
-
 ```
 
 # Logical Operators
@@ -1309,7 +1246,6 @@ let hour = 9;
 if (hour < 10 || hour > 18) {
   alert( 'The office is closed.' );
 }
-
 ```
 
 We can pass more conditions:
@@ -1321,14 +1257,12 @@ let isWeekend = true;
 if (hour < 10 || hour > 18 || isWeekend) {
   alert( 'The office is closed.' ); // it is the weekend
 }
-
 ```
 
 ### OR `||` Finds the First Truthy Value
 
 ```
 result = value1 || value2 || value3;
-
 ```
 
 -   Evaluates operands from left to right.
@@ -1343,7 +1277,6 @@ alert( 1 || 0 ); // 1 (1 is truthy)
 alert( null || 1 ); // 1 (1 is the first truthy value)
 alert( null || 0 || 1 ); // 1 (the first truthy value)
 alert( undefined || null || 0 ); // 0 (all falsy, returns the last value)
-
 ```
 
 Another feature of the OR `||` operator is short-circuit evaluation. It processes its arguments until the first truthy value is reached, and then the value is returned immediately without touching the remaining arguments.
@@ -1356,7 +1289,6 @@ Returns `true` if both operands are truthy and `false` otherwise.
 
 ```
 result = value1 && value2 && value3;
-
 ```
 
 -   Evaluates operands from left to right.
@@ -1376,7 +1308,6 @@ alert( null && 5 ); // null
 alert( 0 && "no matter what" ); // 0
 alert( 1 && 2 && null && 3 ); // null
 alert( 1 && 2 && 3 ); // 3, the last one
-
 ```
 
 > The precedence of the AND `&&` operator is higher than OR `||`. So the code `a && b || c && d` is essentially parsed as `(a && b) || (c && d)`.
@@ -1387,7 +1318,6 @@ The boolean NOT operator is represented with an exclamation sign `!`.
 
 ```
 result = !value;
-
 ```
 
 -   Converts the operand to boolean type: `true`/`false`.
@@ -1400,7 +1330,6 @@ alert( !true ); // false
 alert( !0 ); // true
 alert( !!"non-empty string" ); // true
 alert( !!null ); // false
-
 ```
 
 ## `??` (Nullish Coalescing Operator)
@@ -1439,14 +1368,12 @@ if (i > 5) {
 } else {
   continue;
 }
-
 ```
 
 ...and rewrite it using a question mark:
 
 ```
 (i > 5) ? alert(i) : continue; // ❌ continue isn't allowed here
-
 ```
 
 ...it stops working: there’s a syntax error. This is just another reason not to use the question mark operator `?` instead of `if`.
@@ -1469,7 +1396,6 @@ switch(x) {
     ...
     [break]
 }
-
 ```
 
 The value of `x` is checked for strict equality (`===`) to the value from the first case (that is, `value1`), then to the second (`value2`), and so on.
@@ -1497,7 +1423,6 @@ switch (a) {
   default:
     alert( "I don't know such values" );
 }
-
 ```
 
 Here the `switch` starts to compare from the first case variant that is `3`. The match fails. Then `4`. That’s a match, so the execution starts from `case 4` until the nearest `break`.
@@ -1542,7 +1467,6 @@ while (condition) {
   // code
   // so-called "loop body"
 }
-
 ```
 
 If the loop body has a single statement, we can omit the curly braces `{…}`:
@@ -1550,7 +1474,6 @@ If the loop body has a single statement, we can omit the curly braces `{…}`:
 ```
 let i = 3;
 while (i) alert(i--);
-
 ```
 
 ### do..while Loop
@@ -1561,7 +1484,6 @@ The condition check can be moved below the loop body using the `do..while` synta
 do {
   // loop body
 } while (condition);
-
 ```
 
 The loop will first execute the body, then check the condition, and, while it’s truthy, execute it again and again.
@@ -1576,14 +1498,12 @@ The `for` loop is more complex, but it’s also the most commonly used loop.
 for (begin; condition; step) {
   // ... loop body ...
 }
-
 ```
 
 ```
 for (let i = 0; i < 3; i++) { // shows 0, then 1, then 2
   alert(i);
 }
-
 ```
 
 #### General Looping Algorithm
@@ -1596,7 +1516,6 @@ Run begin
 → (if condition → run body and run step)
 → (if condition → run body and run step)
 → ...
-
 ```
 
 #### Skipping Parts of the for Loop
@@ -1609,7 +1528,6 @@ let i = 0; // we have i already declared and assigned
 for (; i < 3; i++) { // no need for "begin"
   alert( i ); // 0, 1, 2
 }
-
 ```
 
 We can also remove the `step` part:
@@ -1620,7 +1538,6 @@ let i = 0;
 for (; i < 3;) {
   alert( i++ );
 }
-
 ```
 
 This makes the loop identical to `while (i < 3)`.
@@ -1631,7 +1548,6 @@ We can actually remove everything, creating an infinite loop:
 for (;;) {
   // repeats without limits
 }
-
 ```
 
 > Please note that the two `for` semicolons `;` must be present. Otherwise, there would be a syntax error.
@@ -1657,7 +1573,6 @@ while (true) {
 }
 
 alert( 'Sum: ' + sum );
-
 ```
 
 ### continue
@@ -1672,7 +1587,6 @@ for (let i = 0; i < 10; i++) {
 
   alert(i); // 1, then 3, 5, 7, 9
 }
-
 ```
 
 ## Loop Labels
@@ -1694,7 +1608,6 @@ outerLoop: for (let i = 0; i < 3; i++) {
     console.log(`Coords: ${i},${j}`);
   }
 }
-
 ```
 
 Loop labels are not exclusive to `for` loops. They work seamlessly with all basic loop structures in JavaScript, including `while` and `do..while`.
@@ -1733,7 +1646,6 @@ function showMessage() {
 
 // calling the function by its name
 showMessage();
-
 ```
 
 ## 2. Anonymous Function / Function Expression
@@ -1744,7 +1656,6 @@ An anonymous function is a function without a name. It is defined as an expressi
 const multiply = function(a, b) {
   return a * b;
 };
-
 ```
 
 ### Function Declaration vs. Function Expression
@@ -1760,7 +1671,6 @@ Arrow functions provide a shorter syntax compared to traditional functions. They
 
 ```
 const divide = (a, b) => a / b;
-
 ```
 
 > **Inferred Naming:** JavaScript engines use Inferred Naming. If you write `const myFn = () => {}`, the engine assigns `"myFn"` to the function's internal `.name` property. This ensures it displays properly in browser stack traces instead of showing up as anonymous.
@@ -1769,7 +1679,6 @@ Modern JS uses the Rest Parameter syntax (`...args`) to capture dynamic argument
 
 ```
 const logArgs = (...args) => console.log(args); // args is a true array!
-
 ```
 
 ## 4. Higher Order Function (HOF)
@@ -1785,7 +1694,6 @@ function add(a, b) {
   return a + b;
 }
 operation(add, 7, 5);
-
 ```
 
 ## 5. First-Class Functions
@@ -1801,7 +1709,6 @@ const result = add(2, 3); // result will be 5
 
 const mathOperation = add; // assigning the function to another variable
 const result2 = mathOperation(4, 5); // result2 will be 9
-
 ```
 
 ## 6. Pure Functions
@@ -1814,7 +1721,6 @@ function square(number) {
 }
 
 const result = square(4); // result will be 16
-
 ```
 
 ## 7. Impure Functions
@@ -1831,7 +1737,6 @@ function addToTotal(number) {
 
 const result1 = addToTotal(5); // result1 will be 5
 const result2 = addToTotal(3); // result2 will be 8 (total was modified by the previous call)
-
 ```
 
 ## 8. Callback Functions
@@ -1850,7 +1755,6 @@ function processData(data) {
 }
 
 fetchData('https://example.com/data', processData);
-
 ```
 
 ## 9. Immediately Invoked Function Expressions (IIFE)
@@ -1861,7 +1765,6 @@ An IIFE is a function that is executed immediately after it is defined. It is ty
 (function() {
   // Code here is executed immediately
 })();
-
 ```
 
 ## 10. Constructor Functions
@@ -1880,7 +1783,6 @@ function User(name, role) {
 
 const sde1 = new User("Ramesh", "Developer"); 
 console.log(sde1.name); // "Ramesh"
-
 ```
 
 # Modern Class Architecture
@@ -1945,7 +1847,6 @@ console.log(account.balanceView); // "Account Balance: $1500"
 
 console.log(SecureBankAccount.generateRoutingNumber()); // 🟢 583920194 (Static lookup)
 // console.log(account.generateRoutingNumber());         // ❌ TypeError: account.generateRoutingNumber is not a function
-
 ```
 
 ## 11. Generator Functions
@@ -1980,7 +1881,6 @@ console.log(numbers.next());
 console.log(numbers.next());
 console.log(numbers.next());
 console.log(numbers.next());
-
 ```
 
 The generator function `countNumber` produces a sequence of numbers from 1 to 10 using a `yield` statement.
@@ -2002,12 +1902,11 @@ We can pass generator objects directly into a standard `for..of` loop:
 for (let num of countNumber()) {
   console.log(num); // Automatically calls .next() under the hood and unwraps the value!
 }
-
 ```
 
 ## 12. Currying (Functional Transformation via Closures)
 
-Currying transforms a function $f(a, b, c)$ into a callable chain $f(a)(b)(c)$.
+Currying transforms a function `f(a, b, c)` into a callable chain `f(a)(b)(c)`.
 
 ```
 const buildLogger = (environment) => (serviceName) => (message) => {
@@ -2019,7 +1918,6 @@ const logProductionError = buildLogger("production")("AuthService");
 
 // Trigger clean, isolated data evaluation later:
 console.log(logProductionError("Token Expired!")); // "[PRODUCTION][AuthService] Token Expired!"
-
 ```
 
 # Objects
@@ -2049,7 +1947,6 @@ const person = {
         console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
     }
 };
-
 ```
 
 ### 2. Constructor Function
@@ -2064,7 +1961,6 @@ function Person(name, age) {
 }
 
 const person = new Person("John", 30);
-
 ```
 
 ### 3. Object Constructor
@@ -2076,7 +1972,6 @@ person.age = 30;
 person.greet = function() {
     console.log(`Hello, my name is ${this.name} and I'm ${this.age} years old.`);
 };
-
 ```
 
 ### 4. `Object.assign(target, ...sources)`
@@ -2098,7 +1993,6 @@ const rabbit = Object.create(animal); // rabbit inherits animal
 
 console.log(rabbit.eats); // 🟢 true (Found via the Prototype Chain fallback)
 console.log(rabbit.hasOwnProperty("eats")); // 🛑 false (It belongs to the parent prototype, not rabbit directly!)
-
 ```
 
 ## Accessing Object properties and methods and some useful tricks
@@ -2112,7 +2006,6 @@ const person = {
     console.log(`Good Morning Mr.${person.name}`);
   },
 };
-
 ```
 
 ### 1. Dot (.) notation
@@ -2120,7 +2013,6 @@ const person = {
 ```
 console.log(person.name) // "Robin"
 console.log(person.age) // 24
-
 ```
 
 ### 2. Square brackets
@@ -2129,49 +2021,42 @@ The dot requires the key to be a valid variable identifier. That implies: contai
 
 ```
 console.log(person["work doing"]) // "software Engineer"
-
 ```
 
 ### 3. Calling methods (functions inside an Object)
 
 ```
 person.greeting() // "Good Morning Mr. Robin"
-
 ```
 
 ### 4. Adding new properties to an Object
 
 ```
 person.hobby = "Coding"
-
 ```
 
 ### 5. Deleting a property
 
 ```
 delete person.hobby
-
 ```
 
 ### 6. Getting an array of the Keys of the Object
 
 ```
 console.log(Object.keys(person))
-
 ```
 
 ### 7. Getting an array of the Values of the Object
 
 ```
 console.log(Object.values(person))
-
 ```
 
 ### 8. Getting all the key-value pairs of the Object
 
 ```
 console.log(Object.entries(person))
-
 ```
 
 ### 9. Testing whether a property is present in the Object or not
@@ -2182,7 +2067,6 @@ console.log(Object.entries(person))
 let user = { name: "John", age: 30 };
 alert( "age" in user ); // true, user.age exists
 alert( "blabla" in user ); // false, user.blabla doesn't exist
-
 ```
 
 **Way 2:**
@@ -2190,7 +2074,6 @@ alert( "blabla" in user ); // false, user.blabla doesn't exist
 ```
 alert(user.hasOwnProperty("age")) // true, user.age exists
 alert(user.hasOwnProperty("blabla")) // false, user.blabla doesn't exist
-
 ```
 
 ## Computed properties
@@ -2203,7 +2086,6 @@ let bag = {
   [fruit]: 5, // the name of the property is taken from the variable fruit
 };
 alert( bag.apple ); // 5 if fruit="apple"
-
 ```
 
 ## Property names limitations
@@ -2219,7 +2101,6 @@ let obj = {
 };
 
 alert( obj.for + obj.let + obj.return );  // 6
-
 ```
 
 ## Object references and copying
@@ -2229,7 +2110,6 @@ One of the fundamental differences between an object and a primitive data type i
 ```
 let message = "Hello!";
 let phrase = message;
-
 ```
 
 As a result, we have two independent variables, each one storing the string `"Hello!"`.
@@ -2240,7 +2120,6 @@ Objects are not like that. A variable assigned to an object stores not the objec
 let user = {
   name: "John"
 };
-
 ```
 
 The object is stored somewhere in memory, while the `user` variable holds a “reference” to it. When an object variable is copied, the reference is copied, but the object itself is not duplicated.
@@ -2248,7 +2127,6 @@ The object is stored somewhere in memory, while the `user` variable holds a “r
 ```
 let user = { name: "John" };
 let admin = user; // copy the reference
-
 ```
 
 Now we have two variables, each storing a reference to the same object.
@@ -2260,7 +2138,6 @@ let admin = user;
 admin.name = 'Pete'; // changed by the "admin" reference
 
 alert(user.name); // 'Pete', changes are seen from the "user" reference
-
 ```
 
 ## Comparison by reference
@@ -2273,7 +2150,6 @@ let b = a; // copy the reference
 
 alert( a == b ); // true, both variables reference the same object
 alert( a === b ); // true
-
 ```
 
 Independent objects are not equal, even though they look alike (e.g., both are empty):
@@ -2283,7 +2159,6 @@ let a = {};
 let b = {}; // two independent objects
 
 alert( a == b ); // false
-
 ```
 
 ## Cloning Objects
@@ -2309,7 +2184,6 @@ for (let key in user) {
 clone.name = "Pete"; // changed the data in it
 
 alert( user.name ); // still John in the original object 
-
 ```
 
 ### 2. Using `Object.assign`
@@ -2327,7 +2201,6 @@ Object.assign(user, permissions1, permissions2);
 alert(user.name); // John
 alert(user.canView); // true
 alert(user.canEdit); // true
-
 ```
 
 ### 3. Using the ES6 Spread Operator
@@ -2339,7 +2212,6 @@ let user = {
 };
 
 let clone = {...user}; // now clone is a fully independent object with the same content
-
 ```
 
 > `Object.assign()` and the Spread operator (`{...obj}`) are strictly **Shallow Clones**. If your object has nested objects, they copy the memory reference pointers, not the actual nested values.
@@ -2364,7 +2236,6 @@ alert( user.sizes === clone.sizes ); // true, same object reference
 // user and clone share the same sizes object container
 user.sizes.width = 60;    // change a property from one place
 alert(clone.sizes.width); // 60, get the result from the other one
-
 ```
 
 ### 5. `structuredClone`
@@ -2387,7 +2258,6 @@ alert( user.sizes === clone.sizes ); // false, different objects in memory
 // user and clone are totally unrelated now
 user.sizes.width = 60;    // change a property from one place
 alert(clone.sizes.width); // 50, not related
-
 ```
 
 The `structuredClone` method can clone most data types, such as objects, arrays, and primitive values. It also supports circular references, where an object property references the object itself (directly or via a chain of references).
@@ -2399,7 +2269,6 @@ user.me = user;
 
 let clone = structuredClone(user);
 alert(clone.me === clone); // true
-
 ```
 
 > `structuredClone` instantly crashes if it hits a property containing a Function/Method or a DOM node reference.
@@ -2409,7 +2278,6 @@ alert(clone.me === clone); // true
 structuredClone({
   f: function() {}
 });
-
 ```
 
 # The "this" Keyword in Objects
@@ -2428,7 +2296,6 @@ let user = {
   }
 };
 user.sayHi(); // John
-
 ```
 
 ## `this` is Not Bound
@@ -2439,7 +2306,6 @@ In JavaScript, the keyword `this` behaves differently from most other programmin
 function sayHi() {
   alert( this.name );
 }
-
 ```
 
 The value of `this` is evaluated during runtime, depending on the invocation context (call-site). For instance, here the same function is assigned to two different objects and resolves to a different `this` in each call:
@@ -2458,7 +2324,6 @@ admin.f = sayHi;
 
 user.f(); // John  (this == user)
 admin.f(); // Admin  (this == admin)
-
 ```
 
 ## Calling Without an Object
@@ -2468,7 +2333,6 @@ function sayHi() {
   alert(this);
 }
 sayHi(); // undefined
-
 ```
 
 In this case, `this` is `undefined` in strict mode. If we try to access `this.name`, there will be an error. In non-strict mode, the value of `this` falls back to the global object (`window`).
@@ -2489,7 +2353,6 @@ let user = {
 };
 
 user.sayHi(); // Ilya
-
 ```
 
 This special feature of arrow functions is useful when we want to capture and preserve the `this` value of the outer context rather than binding a separate context dynamically.
@@ -2536,7 +2399,6 @@ const user = { name: "Priyam" };
 //   enumerable: true,
 //   configurable: true
 // }
-
 ```
 
 ## 1. Property Descriptor Flags
@@ -2551,7 +2413,6 @@ Object.defineProperty(obj, "age", {
   value: 25
 });
 console.log(obj.age); // 25
-
 ```
 
 ### writable
@@ -2567,7 +2428,6 @@ Object.defineProperty(obj, "name", {
 
 obj.name = "John";
 console.log(obj.name); // "John"
-
 ```
 
 ### enumerable
@@ -2582,7 +2442,6 @@ Object.defineProperty(obj, "name", {
 });
 
 console.log(Object.keys(obj)); // []
-
 ```
 
 ### configurable
@@ -2619,7 +2478,6 @@ Object.defineProperty(obj, "name", { writable: false }); // 🟢 Works perfectly
 
 // 4. Turning writable back to true is permanently FORBIDDEN
 Object.defineProperty(obj, "name", { writable: true }); // ❌ TypeError
-
 ```
 
 ## 2. Getters and Setters (Accessor Properties)
@@ -2648,7 +2506,6 @@ console.log(user.fullName); // "Priyam Mondal"
 
 user.fullName = "Rakesh Sharma";
 console.log(user.fullName); // "Rakesh Sharma"
-
 ```
 
 ### Defining Accessors via defineProperty
@@ -2669,7 +2526,6 @@ Object.defineProperty(obj, "fullName", {
     [this.first, this.last] = value.split(" ");
   }
 });
-
 ```
 
 ## 3. Object-Level Mutability Restrictions
@@ -2686,7 +2542,6 @@ Object.preventExtensions(obj);
 
 obj.age = 25;
 console.log(obj.age); // undefined (Addition ignored)
-
 ```
 
 ### `Object.seal(obj)`
@@ -2696,7 +2551,6 @@ Prevents additions and deletions of properties by setting `configurable: false` 
 ```
 const obj = { name: "Priyam" };
 Object.seal(obj); // No properties can be added or deleted now
-
 ```
 
 ### `Object.freeze(obj)`
@@ -2709,7 +2563,6 @@ Object.freeze(obj);
 
 obj.name = "John"; 
 console.log(obj.name); // "Priyam" (Value assignment blocked)
-
 ```
 
 ### Checking Object State
@@ -2732,7 +2585,6 @@ Object.defineProperty(obj, "_id", {
   value: 123,
   enumerable: false // Prevents leakage during logs, for..in, or JSON serialization
 });
-
 ```
 
 ### 2. Creating Immutable Configuration Constants
@@ -2743,7 +2595,6 @@ Object.defineProperty(config, "API_URL", {
   writable: false,
   configurable: false // Cannot be updated or redefined anywhere else in the application
 });
-
 ```
 
 ### 3. Data Cleansing and Encapsulation with Setters
@@ -2804,14 +2655,12 @@ rabbit.walk();           // 🟢 "Animal walking..."
 
 // Checking ownership
 console.log(rabbit.hasOwnProperty("eats")); // 🛑 false (Inherited, not its own!)
-
 ```
 
 ### `Object.create(null)` — The Prototype-less Object
 
 ```
 const pureObj = Object.create(null);
-
 ```
 
 -   This object does not inherit any built-in methods. It has no `.toString()`, no `.__proto__`, and no `.hasOwnProperty()`.
@@ -2843,7 +2692,6 @@ const user = new Person("Priyam");
 
 // Proof of the structural link:
 console.log(user.__proto__ === Person.prototype); // 🟢 true
-
 ```
 
 ## The "this" Context in Prototypes
@@ -2865,7 +2713,6 @@ admin.name = "Priyam"; // Sets 'name' directly on admin, doesn't touch user!
 
 admin.identify(); // 🟢 "Logged in as: Priyam" ('this' points to admin)
 user.identify();  // 🟢 "Logged in as: Guest"  ('this' points to user)
-
 ```
 
 ## Prototypal Shadowing (Overriding)
@@ -2881,7 +2728,6 @@ console.log(child.job); // "Unemployed" (Read from prototype)
 child.job = "Engineer"; // Shadows the parent's property
 console.log(child.job);  // 🟢 "Engineer" (Read directly from child)
 console.log(parent.job); // 🟢 "Unemployed" (Parent remains completely untouched)
-
 ```
 
 ## Performance and Memory Optimization
@@ -2921,7 +2767,6 @@ A Symbol represents a completely unique identifier. A value of this type can be 
 
 ```
 let id = Symbol();
-
 ```
 
 Upon creation, we can give symbols an optional description (also known as a symbol name). This description is used primarily for debugging purposes:
@@ -2929,7 +2774,6 @@ Upon creation, we can give symbols an optional description (also known as a symb
 ```
 // id is a symbol with the description "id"
 let id = Symbol("id");
-
 ```
 
 ### Guaranteed Uniqueness
@@ -2941,7 +2785,6 @@ let id1 = Symbol("id");
 let id2 = Symbol("id");
 
 alert(id1 == id2); // false
-
 ```
 
 ### Explicit Conversion Guard
@@ -2951,7 +2794,6 @@ Most primitive values in JavaScript support implicit conversion to a string. Sym
 ```
 let id = Symbol("id");
 alert(id); // ❌ TypeError: Cannot convert a Symbol value to a string
-
 ```
 
 This acts as a built-in language guard to prevent mixing up fundamentally different primitive data types. If you want to log or display a symbol, you must call `.toString()` explicitly:
@@ -2959,7 +2801,6 @@ This acts as a built-in language guard to prevent mixing up fundamentally differ
 ```
 let id = Symbol("id");
 alert(id.toString()); // "Symbol(id)"
-
 ```
 
 ## Symbols as Object Properties
@@ -2973,7 +2814,6 @@ let user = {
   name: "John",
   [id]: 123 // Using computed syntax, not "id": 123
 };
-
 ```
 
 ### Hidden Properties Principle
@@ -2999,7 +2839,6 @@ for (let key in user) {
 
 // Direct key access via the symbol variable still works perfectly
 alert("Direct: " + user[id]); // Direct: 123
-
 ```
 
 This encapsulation ensures that external scripts, tools, or third-party libraries looping over your objects cannot unexpectedly discover or modify these symbolic configurations.
@@ -3016,7 +2855,6 @@ let user = {
 
 let clone = Object.assign({}, user);
 alert(clone[id]); // 123
-
 ```
 
 ## Global Symbol Registry
@@ -3036,7 +2874,6 @@ let idAgain = Symbol.for("id");
 
 // Both variables point to the exact same registry reference
 alert(id === idAgain); // true
-
 ```
 
 ### Reverse Registry Lookups: `Symbol.keyFor(sym)`
@@ -3049,7 +2886,6 @@ let sym2 = Symbol.for("id");
 
 alert(Symbol.keyFor(sym));  // "name"
 alert(Symbol.keyFor(sym2)); // "id"
-
 ```
 
 ### Registry Symbols vs. Local Symbols
@@ -3064,7 +2900,6 @@ alert(Symbol.keyFor(globalSymbol)); // "name" (Found in registry)
 alert(Symbol.keyFor(localSymbol));  // undefined (Local symbol not in registry)
 
 alert(localSymbol.description);     // "name" (Read via instance property)
-
 ```
 
 > For additional details, see the official [JavaScript.info Symbol Guide](https://javascript.info/symbol#symbols-in-an-object-literal).
@@ -3115,7 +2950,6 @@ const success = Reflect.defineProperty(user, "age", { value: 25 });
 if (!success) {
   console.log("Failed to modify, but code kept running smoothly!");
 }
-
 ```
 
 ## Creating a Basic Proxy
@@ -3140,7 +2974,6 @@ const handler = {
 };
 
 const proxyObj = new Proxy(targetObj, handler);
-
 ```
 
 ### Signature Mapping
@@ -3155,7 +2988,6 @@ set(target, prop, val, receiver)   ──► Reflect.set(...)
 has(target, prop)                  ──► Reflect.has(...)
 deleteProperty(target, prop)       ──► Reflect.deleteProperty(...)
 ownKeys(target)                    ──► Reflect.ownKeys(...)
-
 ```
 
 ## Real-World Production Uses
@@ -3179,7 +3011,6 @@ const secureProfile = new Proxy(userProfile, {
 
 secureProfile.age = 25;       // 🟢 Works perfectly
 // secureProfile.age = "twenty"; // ❌ Throws TypeError immediately!
-
 ```
 
 ### B. Schema Protection & Privacy
@@ -3206,7 +3037,6 @@ const hiddenRecord = new Proxy(DBRecord, {
 
 console.log("_id" in hiddenRecord);        // 🛑 false
 console.log(Object.keys(hiddenRecord)); // 🟢 ["title", "status"] (Secret key is filtered out!)
-
 ```
 
 ### C. Setting Fallbacks for Missing Keys
@@ -3225,7 +3055,6 @@ const safeTranslation = new Proxy(translation, {
 
 console.log(safeTranslation.hello);   // "Bonjour"
 console.log(safeTranslation.welcome); // "⚠️ [Key "welcome" missing]"
-
 ```
 
 ## ⚠️ Architectural Warning: The Context Trap
@@ -3237,7 +3066,6 @@ A common mistake when writing a `get` trap is directly returning the raw propert
 get(target, prop) {
   return target[prop]; 
 }
-
 ```
 
 **Why this breaks your code:** If another object subsequently inherits your proxy via prototypal inheritance (e.g., `const subclass = Object.create(proxyObj)`), using `target[prop]` breaks the dynamic execution binding of the `this` keyword. It forces `this` inside methods to point backward to the original base proxy target object rather than evaluating the current active calling instance.
@@ -3249,7 +3077,6 @@ Always pass along the `receiver` parameter using Reflect:
 get(target, prop, receiver) {
   return Reflect.get(target, prop, receiver); 
 }
-
 ```
 
 The `receiver` argument acts as a precise context tracking link, ensuring that the `this` context binds to the correct object executing the operation anywhere up and down the prototype chain.
@@ -3276,7 +3103,6 @@ getUser(id, function(user) {
     });
   });
 });
-
 ```
 
 #### B. Inversion of Control (Loss of Trust)
@@ -3317,7 +3143,6 @@ executor
   .then(result => console.log("Success:", result))     // Runs on Fulfilled
   .catch(error => console.error("Error:", error))     // Runs on Rejected
   .finally(() => console.log("Cleanup complete."));   // Runs on Settlement (any state)
-
 ```
 
 ### The 4 Crucial Promise Combinators
@@ -3387,7 +3212,6 @@ setTimeout(() => console.log("2. MacroTask (Browser)"), 0);
 Promise.resolve().then(() => console.log("3. MicroTask (Pure JS)"));
 
 console.log("4. Sync");
-
 ```
 
 #### The Step-by-Step Execution Flow:
@@ -3410,7 +3234,6 @@ Plaintext
 4. Sync
 3. MicroTask (Pure JS)       <-- Standard JS Promise wins priority!
 2. MacroTask (Browser)      <-- Browser tool runs last.
-
 ```
 
 # Asynchronous Patterns: .then() vs. async/await
@@ -3442,7 +3265,6 @@ function processThen() {
   // B. The engine instantly skips down here without waiting for the fetch
   console.log("2. Sync End"); 
 }
-
 ```
 
 ### The Step-by-Step Flow
@@ -3474,7 +3296,6 @@ async function processAwait() {
 
 processAwait();
 console.log("2. Global Sync continuation");
-
 ```
 
 ### The Step-by-Step Flow
@@ -3511,7 +3332,6 @@ Step 4: Check the Microtask Queue.
         ▼
 Step 5: Render UI updates (if running in a browser environment and a redraw is needed).
 Step 6: Loop back to Step 1 and grab the NEXT single Macrotask.
-
 ```
 
 ### Microtask Starvation (The Event Loop Bottleneck)
@@ -3526,7 +3346,6 @@ function starveEventLoop() {
     starveEventLoop(); 
   });
 }
-
 ```
 
 # Advanced JavaScript Error Handling
@@ -3544,7 +3363,6 @@ try {
 } catch (error) {
   console.error("Caught a synchronous error:", error.message);
 }
-
 ```
 
 > Because `try...catch` is completely synchronous, it executes and finishes immediately on the current Call Stack frame. It cannot intercept something that happens in the future.
@@ -3558,7 +3376,6 @@ try {
 } catch (e) {
   console.log("This line will NEVER run!"); 
 }
-
 ```
 
 The `try` block executes, schedules the timer with the browser, and finishes running instantly. One second later, when the timer callback executes on a completely fresh Call Stack frame, the `try...catch` block is already long gone from memory. The error goes unhandled.
@@ -3572,7 +3389,6 @@ try {
 } catch (e) {
   console.log("Will not catch this!"); 
 }
-
 ```
 
 ## 2. `.catch()` (The Method Approach)
@@ -3585,7 +3401,6 @@ fetch("https://api.example.com/data") // Returns a Promise
   .catch(error => {
     console.error("Caught an asynchronous promise rejection:", error);
   });
-
 ```
 
 ## 3. The Unifier: `async / await` with `try...catch`
@@ -3606,7 +3421,6 @@ async function loadData() {
     console.error("Caught an ASYNC error using SYNC syntax:", error);
   }
 }
-
 ```
 
 ## ⚡ Critical Engineering Nuances
@@ -3623,7 +3437,6 @@ window.addEventListener("unhandledrejection", (event) => {
   console.error("Critical: Unhandled Promise Rejection Detected!", event.reason);
   // Optional: Send to logging service (e.g., Sentry)
 });
-
 ```
 
 ### Nuance B: The `await` Return Trap
@@ -3639,7 +3452,6 @@ async function getResource() {
     console.log("This catch block is bypassed!"); // NEVER RUNS
   }
 }
-
 ```
 
 Without `await`, the function immediately passes the pending promise object out of the function block. The function finishes execution successfully, exits the `try...catch`, and when the network request eventually rejects inside the microtask queue moments later, the local catch block is no longer listening.
@@ -3653,7 +3465,6 @@ async function getResource() {
     console.log("Successfully caught the network failure here!"); 
   }
 }
-
 ```
 
 ### Nuance C: `finally {}` vs. `.finally()` Execution Rule
