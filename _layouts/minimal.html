@@ -3,9 +3,79 @@ layout: default
 ---
 
 <style>
+    /* 1. Hide the main theme header as before */
     #main-header {
         display: none !important;
     }
+
+    /* 2. Style the modern floating Back-to-Top Button */
+    #scroll-to-top-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        z-index: 9999;
+        width: 46px;
+        height: 46px;
+        background-color: #f7df1e;
+        /* Pure JS Yellow */
+        color: #1e222b;
+        /* Sleek Dark Slate Text */
+        border: none;
+        border-radius: 50%;
+        font-size: 20px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+
+        /* Starts completely invisible and slightly lowered */
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(10px);
+    }
+
+    /* Hover interactivity effect */
+    #scroll-to-top-btn:hover {
+        transform: translateY(-2px);
+        background-color: #ffeb3b;
+        /* Brighter accent yellow */
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    }
+
+    /* Dynamic visibility state applied via JS */
+    #scroll-to-top-btn.visible {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
 </style>
 
+<button id="scroll-to-top-btn" aria-label="Scroll to top" title="Go to top">▲</button>
+
 {{ content }}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const topBtn = document.getElementById('scroll-to-top-btn');
+
+        window.addEventListener('scroll', function () {
+            // If user scrolls past 400 pixels down, reveal the button. Otherwise hide it.
+            if (window.scrollY > 400) {
+                topBtn.classList.add('visible');
+            } else {
+                topBtn.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll back to absolute coordinate zero when clicked
+        topBtn.addEventListener('click', function () {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    });
+</script>
